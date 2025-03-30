@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('url');
             $table->string('referrer');
             $table->string('userAgent');
-            $table->foreignId('qrcode_id')->constrained('qrcode')->onDelete('cascade');
+            $table->unsignedBigInteger('qrcode_id');
+            $table->foreign('qrcode_id')->references('id')->on('qrcode')->onDelete('cascade');
             $table->timestamps();
         });
     }

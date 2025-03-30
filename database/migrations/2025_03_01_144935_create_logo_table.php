@@ -16,7 +16,8 @@ return new class extends Migration
             $table->boolean('demo')->default(true);
             $table->float('size')->default(0.4);
             $table->boolean('hideCenter')->default(true);
-            $table->foreignId('qrcode_id')->constrained('qrcode')->onDelete('cascade');
+            $table->unsignedBigInteger('qrcode_id');
+            $table->foreign('qrcode_id')->references('id')->on('qrcode')->onDelete('cascade');
             $table->timestamps();
         });
     }

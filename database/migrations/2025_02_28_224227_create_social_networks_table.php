@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('platform');
             $table->string('link')->nullable();
-            $table->foreignId('restaurant_id')->constrained('restaurant')->onDelete('cascade');
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurant')->onDelete('cascade');
             $table->timestamps();
         });
     }

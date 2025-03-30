@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('account_confirmation')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('plans_id')->constrained('plans')->onDelete('cascade');
+            $table->unsignedBigInteger('plans_id');
+            $table->foreign('plans_id')->references('id')->on('plans')->onDelete('cascade');
             $table->timestamps();
         });
 
