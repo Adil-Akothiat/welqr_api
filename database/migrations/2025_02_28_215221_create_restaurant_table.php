@@ -18,10 +18,8 @@ return new class extends Migration
             $table->string('description')->default('');
             $table->string('currency')->default('usd');
             $table->enum('mode', ['light', 'dark'])->default('light');
-            $table->foreignId('user_id');
-            $table->foreignId('qrcode_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('qrcode_id')->references('id')->on('qrcode');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('qrcode_id')->constrained('qrcode')->onDelete('cascade');
             $table->timestamps();
         });
     }

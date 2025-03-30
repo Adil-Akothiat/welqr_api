@@ -8,6 +8,7 @@ use Menu;
 
 class Dish extends Model
 {
+    protected $table = "dishes";
     public function menu(): BelongsTo
     {
         return $this->belongsTo(Menu::class);

@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('backgroundColor')->default('#fffff');
             $table->string('qrcodeColor')->default('#00000');
             $table->enum('correctionLevel', ['L','M','Q','H']);
-            $table->foreignId('qrcode_id');
-            $table->foreign('qrcode_id')->references('id')->on('qrcode');
+            $table->foreignId('qrcode_id')->constrained('qrcode')->onDelete('cascade');
             $table->timestamps();
         });
     }

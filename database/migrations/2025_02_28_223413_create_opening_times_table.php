@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('from');
             $table->string('to');
             $table->enum('openStatus', ['open', 'closed'])->default('open');
-            $table->foreignId('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurant');
+            $table->foreignId('restaurant_id')->constrained('restaurant')->onDelete('cascade');
             $table->timestamps();
         });
     }

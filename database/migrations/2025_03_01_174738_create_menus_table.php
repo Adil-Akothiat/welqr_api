@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('visibility')->default(true);
             $table->string('availibility');
-            $table->foreignId('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurant');
+            $table->foreignId('restaurant_id')->constrained('restaurant')->onDelete('cascade');
             $table->timestamps();
         });
     }

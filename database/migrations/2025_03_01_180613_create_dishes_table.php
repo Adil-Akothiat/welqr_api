@@ -21,8 +21,7 @@ return new class extends Migration
             $table->string('allergens');
             $table->string('tags');
             $table->boolean('visibility')->default(true);
-            $table->foreignId('menus_id');
-            $table->foreign('menus_id')->references('id')->on('menus');
+            $table->foreignId('menus_id')->constrained('menus')->onDelete('cascade');
             $table->timestamps();
         });
     }

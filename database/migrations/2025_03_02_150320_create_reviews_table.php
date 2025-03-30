@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->float('rating');
             $table->string('description');
-            $table->foreignId('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurant');
+            $table->foreignId('restaurant_id')->constrained('restaurant')->onDelete('cascade');
             $table->timestamps();
         });
     }

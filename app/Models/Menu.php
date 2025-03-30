@@ -10,6 +10,7 @@ use Dish;
 
 class Menu extends Model
 {
+    protected $table = "menus";
     public function restaurant(): BelongsTo
     {
         return $this->belongsTo(Restaurant::class);

@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('networkName')->nullable();
             $table->string('networkPassword')->nullable();
-            $table->foreignId('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurant');
+            $table->foreignId('restaurant_id')->constrained('restaurant')->onDelete('cascade');
             $table->timestamps();
         });
     }

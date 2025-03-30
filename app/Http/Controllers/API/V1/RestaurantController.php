@@ -160,7 +160,7 @@ class RestaurantController extends Controller
         return Response()->json(['cover'=> $filePath, 'deleted'=> true])->header('Content-Type', 'application/json');
     }
     public function getRestaurantsByUser($user_id) {
-        $restaurants = Restaurant::with(['language', 'address', 'openingTimes', 'socialNetworks', 'wifi'])->where("user_id", $user_id)->get();
+        $restaurants = Restaurant::with(['language', 'address', 'openingTimes', 'socialNetworks', 'wifi', 'menu'])->where("user_id", $user_id)->get();
         return Response()->json(['restaurants'=> $restaurants])->header('Content-Type', 'application/json');
     }
 }

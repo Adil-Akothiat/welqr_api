@@ -16,8 +16,7 @@ return new class extends Migration
             $table->enum('dotStyle', ['square', 'rouded', 'dots', 'classy', 'classy-rounded', 'extra-rounded']);
             $table->enum('cornerSquareStyles', ['square', 'dot', 'extra-rounded']);
             $table->enum('cornerDotStyles', ['square', 'dot']);
-            $table->foreignId('qrcode_id');
-            $table->foreign('qrcode_id')->references('id')->on('qrcode');
+            $table->foreignId('qrcode_id')->constrained('qrcode')->onDelete('cascade');
             $table->timestamps();
         });
     }

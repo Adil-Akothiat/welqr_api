@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
             $table->string('language');
-            $table->foreignId('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurant');
+            $table->foreignId('restaurant_id')->constrained('restaurant')->onDelete('cascade');
             $table->timestamps();
         });
     }
