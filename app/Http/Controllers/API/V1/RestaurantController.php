@@ -33,7 +33,7 @@ class RestaurantController extends Controller
         try {
         $request->validate([
             'name'=> 'required|max:30|unique:restaurant',
-            'file'=> 'nullable|file|mimes:jpg,jpeg,png|max:5120',
+            'file'=> 'nullable|file|mimes:jpg,jpeg,png,|max:5120',
             'description'=> 'max:255',
             'qrcode_id'=> 'required',
             'path'=> 'nullable'
@@ -83,7 +83,7 @@ class RestaurantController extends Controller
         try {
             $request->validate([
                 'name'=> 'required|max:30',
-                'file'=> 'nullable|file|mimes:jpg,jpeg,png|max:5120',
+                'file'=> 'nullable|file|mimes:jpg,jpeg,png,webp,avif|max:5120',
                 'description'=> 'max:255',
                 'path'=> 'nullable',
                 'qrcode_id'=> 'required'
@@ -155,7 +155,7 @@ class RestaurantController extends Controller
         $filePath = public_path('assets/'.$cover->path);
         if(file_exists($filePath)) {
             unlink($filePath);
-        }
+        } 
         $cover->delete();
         return Response()->json(['cover'=> $filePath, 'deleted'=> true])->header('Content-Type', 'application/json');
     }
