@@ -30,7 +30,7 @@ class AuthController extends Controller
             $token = $user->createToken($request->email);
             $token_expires = config('sanctum.expiration');
             $user = ['firstname'=> $user->firstname, 'lastname'=> $user->lastname, 'id'=> $user->id, 'role'=> $user->role];
-            return Response()->json(['token'=> $token->plainTextToken, 'user'=>$user, 'expires_in'=> $token_expires]);
+            return Response()->json(['token'=> $token->plainTextToken, 'user'=>$user, 'expires_in'=> $token_expires])->header('Content-Type', 'application/json');
         } catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }
