@@ -33,7 +33,7 @@ class RestaurantController extends Controller
         try {
         $request->validate([
             'name'=> 'required|max:30|unique:restaurant',
-            'file'=> 'nullable|file|mimes:jpg,jpeg,png,|max:5120',
+            'file'=> 'nullable|file|mimes:jpg,jpeg,png,webp,avif|max:5120',
             'description'=> 'max:255',
             'qrcode_id'=> 'required',
             'path'=> 'nullable'
@@ -130,37 +130,53 @@ class RestaurantController extends Controller
         }
     }
     public function createCover(Request $request) {
-        $request->validate([
-            'file'=> 'required|file|mimes:jpg,jpeg,png,webp,avif|max:5120'
-        ]);
-        $path = $request->file('file')->store('restaurant', 'public');
-        $cover = new RestaurantCovers;
-        $cover->path = $path;
-        $cover->save();
-        return Response()->json(['cover'=> $cover])->header('Content-Type', 'application/json');
+        try {
+            $request->validate([
+                'file'=> 'required|file|mimes:jpg,jpeg,png,webp,avif|max:5120'
+            ]);
+            $path = $request->file('file')->store('restaurant', 'public');
+            $cover = new RestaurantCovers;
+            $cover->path = $path;
+            $cover->save();
+            return Response()->json(['cover'=> $cover])->header('Content-Type', 'application/json');
+        }catch (Exception $e) {
+            return Utilities::errorsHandler($e);
+        }
     }
     public function getCovers($id) {
-        if($id == 'all') {
-            $covers = RestaurantCovers::all();
-            return Response()->json(['covers'=> $covers])->header('Content-Type', 'application/json');    
+        try {
+            if($id == 'all') {
+                $covers = RestaurantCovers::all();
+                return Response()->json(['covers'=> $covers])->header('Content-Type', 'application/json');    
+            }
+            $cover = RestaurantCovers::find($id);
+            return Response()->json(['cover'=> $cover])->header('Content-Type', 'application/json');
+        }catch (Exception $e) {
+            return Utilities::errorsHandler($e);
         }
-        $cover = RestaurantCovers::find($id);
-        return Response()->json(['cover'=> $cover])->header('Content-Type', 'application/json');
     }
     public function deleteCover($id) {
-        $cover = RestaurantCovers::find($id);
-        if(!$cover) {
-            return Response()->json(['message'=> 'Cover not exists!'])->header('Content-Type', 'application/json');
+        try {
+            $cover = RestaurantCovers::find($id);
+            if(!$cover) {
+                return Response()->json(['message'=> 'Cover not exists!'])->header('Content-Type', 'application/json');
+            }
+            $filePath = public_path('assets/'.$cover->path);
+            if(file_exists($filePath)) {
+                unlink($filePath);
+            } 
+            $cover->delete();
+            return Response()->json(['cover'=> $filePath, 'deleted'=> true])->header('Content-Type', 'application/json');
+        } catch (Exception $e) {
+            return Utilities::errorsHandler($e);
         }
-        $filePath = public_path('assets/'.$cover->path);
-        if(file_exists($filePath)) {
-            unlink($filePath);
-        } 
-        $cover->delete();
-        return Response()->json(['cover'=> $filePath, 'deleted'=> true])->header('Content-Type', 'application/json');
     }
     public function getRestaurantsByUser($user_id) {
-        $restaurants = Restaurant::with(['language', 'address', 'openingTimes', 'socialNetworks', 'wifi', 'menu'])->where("user_id", $user_id)->get();
-        return Response()->json(['restaurants'=> $restaurants])->header('Content-Type', 'application/json');
+        try {
+            $restaurants = Restaurant::with(['language', 'address', 'openingTimes', 'socialNetworks', 'wifi', 'menu'])->where("user_id", $user_id)->get();
+            return Response()->json(['restaurants'=> $restaurants])->header('Content-Type', 'application/json');
+        }catch (Exception) {
+            return Utilities::errorsHandler($e);
+        }
     }
 }
