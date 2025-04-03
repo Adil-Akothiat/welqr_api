@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\V1\{ AuthController, SessionController, RestaurantController, QrcodeController, RestaurantLanguageController, AddressController, OpeningTimeController, SocialNetworksController, WifiController };
-
+# test commit changes
 Route::group(["prefix"=> "v1", "namespace"=> "App\Http\Controllers\API\V1"], function() {
     Route::post('user/register', [AuthController::class, 'register']);
     Route::post('user/login', [AuthController::class, 'login']);
