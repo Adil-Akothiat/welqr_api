@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\{ Request, Response };
 use App\Models\{User, Restaurant, ForgotPassword};
 use App\Helpers\Utilities;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\{Hash, Http, Log};
 use Exception;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Notifications\ResetPasswordNotification;
 use Google\Client as GoogleClient;
 use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -135,35 +136,37 @@ class AuthController extends Controller
     {
         try {
             $request->validate([
-                'firstname' => 'required|max:50',
-                'lastname' => 'required|max:50',
-                'email' => 'required',
-                'photo' => 'nullable|max:100',
+                'code' => 'required'
             ]);
-            $user = User::where('email', $request->email);
-            if($user->first()) {
-                $user = $user->first();
-                $user->tokens()->delete();
-                $token = $user->createToken($request->email);
-                $token_expires = config('sanctum.expiration');
-                $user = ['firstname'=> $user->firstname, 'lastname'=> $user->lastname, 'id'=> $user->id];
-                return Response()->json(['token'=> $token->plainTextToken, 'user'=>$user, 'expires_in'=> $token_expires]);
-            }
-            $pwd = $randomPassword = Str::random(16);
-            $user = new User;
-            $user->firstname = $request->firstname;
-            $user->lastname = $request->lastname;
-            $user->email = $request->email;
-            $user->account_confirmation = $request->account_confirmation;
-            $user->email_verified_at = now();
-            $user->password = Hash::make($pwd);
-            $user->photo = $request->photo;
-            $user->plans_id = 1;
-            $user->save();
-            $token = $user->createToken($request->email);
+            $googleUser = Socialite::driver('google')->stateless()->user();
+            $guser = $googleUser->user;
+            $user = User::firstOrCreate(
+                ['email' => $guser['email']],
+                [
+                    'firstname' => $guser['given_name'],
+                    'lastname' => $guser['family_name'], 
+                    'email' => $guser['email'],
+                    'account_confirmation' => $guser['email_verified'],
+                    'email_verified_at' => now(),
+                    'password' => Hash::make(Str::random(16)), 
+                    'photo' => $guser['picture'],
+                    'plans_id' => 1,
+                ]
+            );
+            $user->tokens()->delete();
+            $token = $user->createToken($guser['email']);
             $token_expires = config('sanctum.expiration');
-            $user = ['firstname'=> $user->firstname, 'lastname'=> $user->lastname, 'id'=> $user->id];
-            return Response()->json(['token'=> $token->plainTextToken, 'user'=>$user, 'expires_in'=> $token_expires]);
+
+            $userData = [
+                'firstname' => $user->firstname,
+                'lastname' => $user->lastname,
+                'id' => $user->id,
+            ];
+            return response()->json([
+                'token' => $token->plainTextToken,
+                'user' => $userData,
+                'expires_in' => $token_expires,
+            ]);
         } catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }

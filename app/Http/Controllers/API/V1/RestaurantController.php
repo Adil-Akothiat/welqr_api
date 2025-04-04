@@ -33,7 +33,7 @@ class RestaurantController extends Controller
         try {
         $request->validate([
             'name'=> 'required|max:30|unique:restaurant',
-            'file'=> 'nullable|file|mimes:jpg,jpeg,png,webp,avif|max:5120',
+            'file'=> 'nullable|file|image|max:5120',
             'description'=> 'max:255',
             'qrcode_id'=> 'required',
             'path'=> 'nullable'
@@ -83,7 +83,7 @@ class RestaurantController extends Controller
         try {
             $request->validate([
                 'name'=> 'required|max:30',
-                'file'=> 'nullable|file|mimes:jpg,jpeg,png,webp,avif|max:5120',
+                'file'=> 'nullable|file|image|max:5120',
                 'description'=> 'max:255',
                 'path'=> 'nullable',
                 'qrcode_id'=> 'required'
@@ -132,7 +132,7 @@ class RestaurantController extends Controller
     public function createCover(Request $request) {
         try {
             $request->validate([
-                'file'=> 'required|file|mimes:jpg,jpeg,png,webp,avif|max:5120'
+                'file'=> 'required|file|image|max:5120'
             ]);
             $path = $request->file('file')->store('restaurant', 'public');
             $cover = new RestaurantCovers;
