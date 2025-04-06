@@ -41,13 +41,17 @@ class AuthController extends Controller
             $request->validate([
                 'firstname' => 'required|max:50',
                 'lastname' => 'required|max:50',
-                'email' => 'required|unique:users',
+                'email' => 'required',
                 'password' => 'required|confirmed',
                 'photo' => 'nullable|max:100',
-                'account_confirmation' => 'boolean',
+                // 'account_confirmation' => 'boolean',
                 'email_verified_at' => 'nullable'
             ]);
-            
+            $userExists = User::where('email', $request->email)->first();
+            if($userExists):
+                $msg =$userExists->google_user ? "GU-- ?? --GU" : "SU-- ?? --SU";
+                return Response()->json(['message'=> $msg], 409)->header('Content-Type','application/json');
+            endif;
             $user = new User;
             $user->firstname = $request->firstname;
             $user->lastname = $request->lastname;
@@ -55,6 +59,8 @@ class AuthController extends Controller
             $user->password = Hash::make($request->password);
             $user->photo = $request->photo;
             $user->role = $request->role ?? 'client';
+            $user->google_user = false;
+            $user->account_confirmation = false;
             $user->plans_id = 1;
             $user->save();
             $token = $user->createToken($request->email);
@@ -148,6 +154,7 @@ class AuthController extends Controller
                     'lastname' => $guser['family_name'] ?? $rndStr->randomStr(3), 
                     'email' => $guser['email'],
                     'account_confirmation' => $guser['email_verified'] ?? false,
+                    'google_user' => true,
                     'email_verified_at' => now(),
                     'password' => Hash::make(Str::random(16)), 
                     'photo' => $guser['picture'] ?? null,

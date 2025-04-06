@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('photo')->nullable();
             $table->enum('role', ['invited', 'admin', 'client'])->default('client');
-            $table->string('account_confirmation')->default(false);
+            $table->boolean('account_confirmation')->default(false);
+            $table->boolean('google_user')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('plans_id');
