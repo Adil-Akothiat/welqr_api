@@ -30,4 +30,14 @@ class Utilities {
             'message' => $e->getMessage()
         ], 400)->header('Content-Type', 'application/json');
     }
+
+    // generate random string
+    public function randomStr($len=4) {
+        $letters = "abcdefghijklmnopqrstuvwxyz0123456789";
+        $arr = [];
+        for($i=0; $i < $len; $i++):
+            array_push($arr, $letters[random_int($i, strlen($letters)-1)]);
+        endfor;
+        return implode('', $arr);
+    }
 }

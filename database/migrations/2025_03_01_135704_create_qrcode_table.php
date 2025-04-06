@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('qrcode', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('url');
             $table->enum('extensions', ['svg', 'pdf', 'png', 'webp', 'jpeg']);
             $table->timestamps();

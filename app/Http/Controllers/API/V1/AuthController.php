@@ -54,7 +54,7 @@ class AuthController extends Controller
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->photo = $request->photo;
-            $user->role = $request->role;
+            $user->role = $request->role ?? 'client';
             $user->plans_id = 1;
             $user->save();
             $token = $user->createToken($request->email);
@@ -66,7 +66,7 @@ class AuthController extends Controller
             return Utilities::errorsHandler($e);
         }
     }
-    
+
     public function forgotPassword (Request $request) {
         try {
             $request->validate([
@@ -91,7 +91,7 @@ class AuthController extends Controller
             $user->notify(
                 new ResetPasswordNotification($user, $resetPasswordCode)
             );
-            return Response()->json(['success'=> 'We send a code to your mail, checkout your mailbox!'], 200)->header('Content-Type', 'application/json');
+            return Response()->json(['success'=> 'We send a code to your mail, checkout your mailbox!', 'created_at'=> time()], 200)->header('Content-Type', 'application/json');
         } catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }
@@ -138,18 +138,19 @@ class AuthController extends Controller
             $request->validate([
                 'code' => 'required'
             ]);
+            $rndStr = new Utilities();
             $googleUser = Socialite::driver('google')->stateless()->user();
             $guser = $googleUser->user;
             $user = User::firstOrCreate(
                 ['email' => $guser['email']],
                 [
-                    'firstname' => $guser['given_name'],
-                    'lastname' => $guser['family_name'], 
+                    'firstname' => $guser['given_name'] ?? $rndStr->randomStr(4),
+                    'lastname' => $guser['family_name'] ?? $rndStr->randomStr(3), 
                     'email' => $guser['email'],
-                    'account_confirmation' => $guser['email_verified'],
+                    'account_confirmation' => $guser['email_verified'] ?? false,
                     'email_verified_at' => now(),
                     'password' => Hash::make(Str::random(16)), 
-                    'photo' => $guser['picture'],
+                    'photo' => $guser['picture'] ?? null,
                     'plans_id' => 1,
                 ]
             );
