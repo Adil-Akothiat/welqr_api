@@ -37,10 +37,16 @@ class ResetPasswordNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('WelQR')
-                    ->line('Hi,'. $this->user->lastname . ' ' .$this->user->firstname)
-                    ->line('This is your reset password confirmation code.')
-                    ->line('Code: '.$this->token);
+            ->subject('WelQR - Reset Password Request') // Set a custom subject
+            ->line('WelQR') // Replace 'WelQR' with your desired header text
+            ->line('Hi, ' . $this->user->lastname . ' ' . $this->user->firstname)
+            ->line('This is your reset password confirmation code.')
+            ->line('Code: ' . $this->token)
+            ->line('') // Optional: Add a space between the code and the footer
+            ->line('Regards,') // Custom closing text
+            ->line('The WelQR Team') // Custom footer text, replacing "welqr_api"
+            ->line('') // Optional: Add an empty line for separation
+            ->line('© 2025 WelQR. All rights reserved.'); 
     }
 
     /**
