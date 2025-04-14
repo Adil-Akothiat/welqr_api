@@ -11,6 +11,12 @@ use Dish;
 class Menu extends Model
 {
     protected $table = "menus";
+    protected $fillable = [
+        'name',
+        'visibility',
+        'availibility',
+        'restaurant_id'
+    ];
     public function restaurant(): BelongsTo
     {
         return $this->belongsTo(Restaurant::class);

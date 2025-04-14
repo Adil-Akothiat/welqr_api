@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('visibility')->default(true);
-            $table->string('availibility');
+            $table->string('availibility')->default('monday,tuesday,wednesday,thursday,friday,saturday,sunday');
+            $table->string('filePath')->nullable()->default(null);
+            $table->integer('order');
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurant')->onDelete('cascade');
             $table->timestamps();

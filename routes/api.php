@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\V1\{ AuthController, SessionController, RestaurantController, QrcodeController, RestaurantLanguageController, AddressController, OpeningTimeController, SocialNetworksController, WifiController };
+use App\Http\Controllers\API\V1\{ AuthController, SessionController, RestaurantController, QrcodeController, RestaurantLanguageController, AddressController, OpeningTimeController, SocialNetworksController, WifiController, MenuController };
 use App\Http\Controllers\TestController;
 # test commit changes
 Route::group(["prefix"=> "v1", "namespace"=> "App\Http\Controllers\API\V1"], function() {
@@ -40,8 +40,10 @@ Route::group(["prefix"=> "v1", "namespace"=> "App\Http\Controllers\API\V1"], fun
         Route::apiResource('/restaurantSocialNetworks', SocialNetworksController::class);
         // restaurant wifi
         Route::apiResource('/restaurantWifi', WifiController::class);
+        // menu
+        Route::apiResource('/menu', MenuController::class);
+        Route::put('/menuOrder/{curr}/{swp}', [MenuController::class, 'orderMenu']);
     });
 });
-
 
 Route::get('/test', [TestController::class, 'test']);
