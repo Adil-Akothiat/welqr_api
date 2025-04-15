@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->string('image');
-            $table->string('price');
-            $table->string('prices');
-            $table->string('allergens');
-            $table->string('tags');
+            $table->string('description')->default('');
+            $table->string('image')->nullable();
+            $table->string('price')->nullable();
+            $table->string('prices')->nullable();
+            $table->string('allergens')->nullable();
+            $table->string('tags')->nullable();
             $table->boolean('visibility')->default(true);
-            $table->unsignedBigInteger('menus_id');
-            $table->foreign('menus_id')->references('id')->on('menus')->onDelete('cascade');
+            $table->unsignedBigInteger('menu_id');
+            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
             $table->timestamps();
         });
     }

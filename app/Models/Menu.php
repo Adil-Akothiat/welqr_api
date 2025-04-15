@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Restaurant;
-use Dish;
+use App\Models\{ Dish, Restaurant };
 
 class Menu extends Model
 {
@@ -21,7 +20,7 @@ class Menu extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
-    public function dish(): HasMany
+    public function dishes(): HasMany
     {
         return $this->hasMany(Dish::class);
     }

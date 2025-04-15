@@ -38,7 +38,7 @@ class RestaurantController extends Controller
             'qrcode_id'=> 'required',
             'path'=> 'nullable'
         ]);
-        $path;
+        $path = null;
         if($request->file) {
             $path = $request->file('file')->store('restaurant', 'public');
         }else {
@@ -175,7 +175,7 @@ class RestaurantController extends Controller
         try {
             $restaurants = Restaurant::with(['language', 'address', 'openingTimes', 'socialNetworks', 'wifi', 'menu'])->where("user_id", $user_id)->get();
             return Response()->json(['restaurants'=> $restaurants])->header('Content-Type', 'application/json');
-        }catch (Exception) {
+        }catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }
     }
