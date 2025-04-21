@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->default('');
+            $table->longText('description')->nullable();
             $table->string('image')->nullable();
             $table->string('price')->nullable();
             $table->string('prices')->nullable();

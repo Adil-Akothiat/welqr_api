@@ -13,4 +13,14 @@ class Dish extends Model
     {
         return $this->belongsTo(Menu::class);
     }
+    protected static function booted() {
+        static::deleting(function ($child) {
+            if($child->image) {
+                $filePath = public_path('assets/'.$child->image);
+                if(file_exists($filePath)):
+                    unlink($filePath);
+                endif;
+            }
+        });
+    }
 }

@@ -30,7 +30,6 @@ class DishController extends Controller
                 'name'=> 'required',
                 'menu_id'=> 'required'
             ]);
-            $path;
             if($request->file) {
                 $path = $request->file('file')->store('dish', 'public');
             }else {
@@ -48,8 +47,10 @@ class DishController extends Controller
             $dish->allergens = $request->allergens;
             $dish->tags = $request->tags;
             $dish->menu_id = $request->menu_id;
-    
+            
             $dish->save();
+            $dish->refresh();
+
             return Response()->json(['dish'=> $dish], 200)->header('Content-Type', 'application/json');    
         } catch (Exception $e) {
             return Utilities::errorsHandler($e);
@@ -61,7 +62,15 @@ class DishController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            $dish = Dish::find($id);
+            if($dish) {
+                new NotFoundHttpException("Restaurant not found");
+            }
+            return Response()->json(['dish'=> $dish], 200)->header('Content-Type', 'application/json');
+        } catch (Exception $e) {
+            return Utilities::errorsHandler($e);
+        }
     }
 
     /**
@@ -73,17 +82,18 @@ class DishController extends Controller
             $request->validate([
                 'file'=> 'nullable|file|image|max:5520',
                 'name'=> 'required',
-                'menu_id'=> 'required'
+                'menu_id'=> 'required',
+                'path'=> 'nullable'
             ]);
-            $path=null;
+            $path = $request->path;
             if($request->file) {
                 $path = $request->file('file')->store('dish', 'public');
             }
             $dish = Dish::find($id);
             if(!$dish) {
-                throw new NotFoundHttpException("Restaurant not found");
+                throw new NotFoundHttpException("Dish not found");
             }
-            if($dish->image && $path != null) {
+            if($dish->image && $request->file) {
                 $filePath = public_path('assets/'.$dish->image);
                 if(file_exists($filePath)):
                     unlink($filePath);
@@ -117,12 +127,6 @@ class DishController extends Controller
             $dish = Dish::find($id);
             if(!$dish) {
                 throw new NotFoundHttpException("Dish not found");
-            }
-            if($dish->image) {
-                $filePath = public_path('assets/'.$dish->image);
-                if(file_exists($filePath)):
-                    unlink($filePath);
-                endif;
             }
             $dish->delete();
             return Response()->json(['dish'=> $dish], 200)->header('Content-Type', 'application/json');

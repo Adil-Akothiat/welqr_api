@@ -110,6 +110,9 @@ class MenuController extends Controller
         if(!$menu) {
             throw new NotFoundHttpException("Menu not found"); 
         }
+        foreach ($menu->dishes as $dish) {
+            $dish->delete();
+        }
         $menu->delete();
         return Response()->json(['menu'=> $menu])->header('Content-Type', 'application/json');
     }

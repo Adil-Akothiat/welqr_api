@@ -23,8 +23,8 @@ return new class extends Migration
             $table->boolean('google_user')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('plans_id');
-            $table->foreign('plans_id')->references('id')->on('plans')->onDelete('cascade');
+            // $table->unsignedBigInteger('plans_id');
+            // $table->foreign('plans_id')->references('id')->on('plans')->onDelete('cascade');
             $table->timestamps();
         });
 

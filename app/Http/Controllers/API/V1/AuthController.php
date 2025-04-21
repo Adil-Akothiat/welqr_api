@@ -61,7 +61,7 @@ class AuthController extends Controller
             $user->role = $request->role ?? 'client';
             $user->google_user = false;
             $user->account_confirmation = false;
-            $user->plans_id = 1;
+            // $user->plans_id = 1;
             $user->save();
             $token = $user->createToken($request->email);
             $token_expires = config('sanctum.expiration');
@@ -158,7 +158,7 @@ class AuthController extends Controller
                     'email_verified_at' => now(),
                     'password' => Hash::make(Str::random(16)), 
                     'photo' => $guser['picture'] ?? null,
-                    'plans_id' => 1,
+                    // 'plans_id' => 1,
                 ]
             );
             $user->tokens()->delete();
