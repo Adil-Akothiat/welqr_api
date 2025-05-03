@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('coverImage');
             $table->string('description')->default('');
-            $table->string('currency')->default('usd');
+            $table->string('currency')->default('usd-$');
             $table->enum('mode', ['light', 'dark'])->default('light');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('qrcode_id');

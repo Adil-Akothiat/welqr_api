@@ -12,3 +12,4 @@ require __DIR__.'/myRoutes/qrcode.php';
 require __DIR__.'/myRoutes/menu.php';
 require __DIR__.'/myRoutes/dish.php';
 require __DIR__.'/myRoutes/public.php';
+require __DIR__.'/myRoutes/serveAssets.php';

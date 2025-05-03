@@ -110,6 +110,15 @@ class MenuController extends Controller
         if(!$menu) {
             throw new NotFoundHttpException("Menu not found"); 
         }
+        if($menu->filePath) {
+            $files = json_decode($menu->filePath);
+            foreach($files as $key=>$value) {
+                $filePath = public_path('assets/'.$value);
+                if(file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+        }
         foreach ($menu->dishes as $dish) {
             $dish->delete();
         }
