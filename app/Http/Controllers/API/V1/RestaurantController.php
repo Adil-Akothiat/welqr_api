@@ -47,7 +47,7 @@ class RestaurantController extends Controller
         $restaurant = new Restaurant;
         $restaurant->name = $request->name;
         $restaurant->coverImage = $path;
-        $restaurant->description = $request->description ?? "";
+        $restaurant->description = $request->description;
         $restaurant->mode = $request->mode;
         $restaurant->qrcode_id = $request->qrcode_id;
         $restaurant->user_id = $request->user()->id;
@@ -100,7 +100,7 @@ class RestaurantController extends Controller
             }
             $restaurant->name = $request->name;
             $restaurant->coverImage = $path;
-            $restaurant->description = $request->description || "";
+            $restaurant->description = $request->description;
             $restaurant->mode = $request->mode;
             $restaurant->currency = $request->currency;
             $restaurant->qrcode_id = $request->qrcode_id;
