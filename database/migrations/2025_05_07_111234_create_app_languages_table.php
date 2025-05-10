@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('app_languages', function (Blueprint $table) {
             $table->id();
             $table->string("language");
-            $table->string("code");
+            $table->string("code")->unique();
+            $table->string("jsonPath");
             $table->string("icon");
             $table->timestamps();
         });

@@ -1,0 +1,476 @@
+{
+    "pages": {
+        "menus": "Menús",
+        "statistics": "Estadísticas",
+        "profile": "Mi Perfil",
+        "members": "Miembros",
+        "add_restaurant": "Agregar restaurante",
+        "logout": "Cerrar sesión",
+        "qrcode": "Personaliza tu diseño de código QR",
+        "home": "Inicio",
+        "settings": "Configuraciones",
+        "plans_payment": "Planes y pagos",
+        "qr": "Código QR",
+        "login": "Iniciar sesión",
+        "register": "Registrarse",
+        "resetPassword": "Restablecer contraseña",
+        "forgotPassword": "Olvidé mi contraseña"
+    },
+    "boxUploader": {
+        "name": "Haz clic para subir o arrastra y suelta"
+    },
+    "menus": {
+        "init": {
+            "name": "¡Comienza con tu primer menú de restaurante!",
+            "button": "lanza tu menú"
+        },
+        "create": "Crear",
+        "preview": "Vista previa",
+        "newMenu": "Nuevo menú",
+        "menuName": "nombre del menú",
+        "pages": "vista previa",
+        "chooseMenu": "Elige uno: Menú interactivo o Menú PDF",
+        "validation": {
+            "nameRequired": "Por favor complete este campo.",
+            "createdSuccessfully": "¡Menú creado con éxito!",
+            "pdfRequired": "Debe cargar al menos un archivo PDF para su menú.",
+            "ok": "Ok",
+            "menuDeletedSuccessfully": "¡Menú eliminado con éxito!",
+            "menuUpdatedSuccessfully": "¡El menú se ha actualizado correctamente!"
+        },
+        "interactive": {
+            "name": "Menú interactivo",
+            "description": "Dar detalles directamente"
+        },
+        "pdf": {
+            "name": "Menú PDF",
+            "description": "Sube tu menú en PDF"
+        },
+        "menuSettings": {
+            "visibility": {
+                "name": "visibilidad",
+                "description": "La visibilidad de su menú se actualizará instantáneamente a Privado o Público según su selección."
+            },
+            "menuInfo": {
+                "name": "Información del menú",
+                "availability": {
+                    "name": "disponibilidad",
+                    "description": "Seleccione los días en que se servirá su menú. Elija días específicos de la semana o 'Todos los días' para disponibilidad continua.",
+                    "change": "cambiar",
+                    "days": {
+                        "eve": "todos los días",
+                        "mon": "lunes",
+                        "tue": "martes",
+                        "wed": "miércoles",
+                        "thu": "jueves",
+                        "fri": "viernes",
+                        "sat": "sábado",
+                        "sun": "domingo"
+                    },
+                    "unavailable": "No disponible"
+                },
+                "totalPlates": "Platos totales",
+                "delete": {
+                    "name": "eliminar",
+                    "alert": "¿Está seguro de que desea eliminar el menú?",
+                    "description": "Una vez eliminado, ¡no podrá recuperar el menú!",
+                    "cancel": "cancelar"
+                },
+                "rename": {
+                    "name": "renombrar",
+                    "alert": "¿Está seguro de que desea renombrar el menú?",
+                    "save": "Guardar"
+                }
+            },
+            "plates": {
+                "name": "Platos del menú",
+                "description": "Piensa en un buen plato para servir a tus clientes. Comienza creando un nuevo plato.",
+                "empty_list": "Tu lista de platos está vacía",
+                "addPlate": {
+                    "name": "Añadir plato",
+                    "success": {
+                        "dishCreatedSuccessfully": "¡El plato se ha creado correctamente!",
+                        "dishDeletedSuccessfully": "¡El plato se ha eliminado correctamente!",
+                        "dishUpdatedSuccessfully": "¡El plato se ha actualizado correctamente!"
+                    },
+                    "errors": {
+                        "fileSize": "El tamaño del archivo es demasiado grande. El tamaño máximo es de 5 MB.",
+                        "fileRequired": "Por favor, selecciona un archivo como imagen",
+                        "nameRequired": "Por favor, establece un nombre inicial para el plato",
+                        "priceRequired": "Por favor, establece un precio inicial para el plato"
+                    },
+                    "details": {
+                        "create": "Nuevo plato",
+                        "image": "Imagen",
+                        "plateName": "Nombre del plato",
+                        "price": "Precio",
+                        "add_price": "agregar precio personalizado",
+                        "mealSize": "tamaño de la comida",
+                        "description": "Descripción",
+                        "placeholder": "Harina, aceite vegetal, agua y sal...",
+                        "allergens": {
+                            "name": "alérgenos",
+                            "tags": {
+                                "celery": "Apio",
+                                "cereal containing": "Cereales que contienen",
+                                "gluten": "Gluten",
+                                "crustaceans": "Crustáceos",
+                                "eggs": "Huevos",
+                                "fish": "Pescado",
+                                "lupin": "Altramuz",
+                                "milk": "Leche",
+                                "molluscs": "Moluscos",
+                                "mustard": "Mostaza",
+                                "nuts": "Frutos secos",
+                                "peanuts": "Cacahuetes",
+                                "sesame seeds": "Semillas de sésamo",
+                                "soybeans": "Soja",
+                                "sulphur dioxide and sulphites": "Dióxido de azufre y sulfitos"
+                            }
+                        },
+                        "tags": {
+                            "name": "etiquetas",
+                            "tags": {
+                                "vegan": "Vegano",
+                                "vegetarian": "Vegetariano",
+                                "gluten-free": "Sin gluten",
+                                "dairy-free": "Sin lácteos",
+                                "nut-free": "Sin frutos secos",
+                                "halal": "Halal",
+                                "spicy": "Picante",
+                                "sweet": "Dulce",
+                                "salty": "Salado",
+                                "sour": "Ácido",
+                                "bitter": "Amargo",
+                                "low-calorie": "Bajo en calorías",
+                                "high-protein": "Alto en proteínas"
+                            }
+                        }
+                    }
+                },
+                "delete": {
+                    "name": "eliminar",
+                    "alert": "¿Está seguro de que desea eliminar este plato?",
+                    "description": "Una vez que elimine el plato de su colección, no podrá recuperarlo.",
+                    "cancel": "cancelar"
+                },
+                "modify": {
+                    "name": "modificar",
+                    "submit": "Guardar modificaciones"
+                }
+            }
+        }
+    },
+    "qrcode": {
+        "mainStyle": {
+            "name": "estilo principal",
+            "url": "url",
+            "background": "color de fondo",
+            "qr": "color del código QR",
+            "correction": "nivel de corrección"
+        },
+        "borders&corners": {
+            "name": "bordes y esquinas",
+            "dotStyles": {
+                "name": "estilos de puntos",
+                "styles": "cuadrado,redondeado,puntos,elegante,elegante-redondeado,extra-redondeado"
+            },
+            "cornerSquareStyles": {
+                "name": "estilos cuadrados de esquina",
+                "styles": "cuadrado,punto,extra-redondeado"
+            },
+            "cornerDotStyles": {
+                "name": "estilos de puntos de esquina",
+                "styles": "cuadrado,punto"
+            }
+        },
+        "logo": {
+            "name": "logo",
+            "demo": "demo",
+            "uploadLogo": {
+                "name": "subir logo",
+                "chooseFile": "elegir archivo",
+                "notFile": "ningún archivo elegido",
+                "remove": "eliminar"
+            },
+            "logoSize": "tamaño del logo",
+            "hideCenter": "ocultar centro",
+            "logoSizeAlert": "El tamaño recomendado es 0,4 para obtener resultados óptimos.",
+            "alert": "Importante: Por favor escanea el código QR para verificar que funcione."
+        }
+    },
+    "settings": {
+        "essentialDetails": {
+            "title": "Detalles Esenciales",
+            "restaurantName": "Nombre del Restaurante",
+            "liveMenu": "Menú en Vivo",
+            "location": "Ubicación",
+            "phoneNumber": "Número de Teléfono",
+            "currency": "Moneda",
+            "description": "Descripción",
+            "saveButton": "Guardar",
+            "restaurantNameValidation": "Solo se permiten caracteres alfanuméricos y espacios, y la longitud máxima es de 25 caracteres."
+        },
+        "languages": "Idiomas",
+        "favorites": "Favoritos",
+        "autocomplete": {
+            "label": "Autocompletar Múltiple"
+        },
+        "serviceStatus": {
+            "title": "Estado del Servicio",
+            "restaurantOpening": "Apertura del Restaurante",
+            "openCloseInstructions": "Para abrir o cerrar el restaurante ahora, seleccione la casilla correspondiente a continuación."
+        },
+        "workingHours": {
+            "title": "Horario de Trabajo",
+            "from": "Desde:",
+            "to": "Hasta:",
+            "resetTime": "Restablecer Hora"
+        },
+        "look": {
+            "title": "Apariencia",
+            "coverImage": {
+                "label": "Imagen de Portada",
+                "instructions": "Sube una imagen de portada cautivadora para causar una buena primera impresión. Elige algo llamativo y relevante.",
+                "uploadInstructions": "Haz clic para subir o arrastra y suelta",
+                "uploadButton": "Subir Imagen de Portada"
+            }
+        },
+        "socialMedia": {
+            "title": "Redes Sociales",
+            "instructions": "Permite que tus clientes se conecten contigo en línea. Comparte fácilmente tus perfiles en redes sociales",
+            "instagram": "Instagram",
+            "facebook": "Facebook",
+            "tiktok": "Tiktok",
+            "saveButton": "Guardar"
+        },
+        "wifi": {
+            "title": "WiFi",
+            "instructions": "Habilite el Wi-Fi de su restaurante para que los clientes puedan conectarse fácilmente a su red.",
+            "ssid": "Nombre de red (SSID)",
+            "password": "Contraseña",
+            "saveButton": "Guardar"
+        },
+        "alerts": {
+            "coverImageError": "Por favor, sube una imagen de portada",
+            "saved": "Cambios guardados con éxito",
+            "fileSize": "El tamaño del archivo es demasiado grande. Tamaño máximo: 5 MB.",
+            "selectFile": "Por favor, seleccione un archivo"
+        }
+    },
+    "profil": {
+        "accountInformation": {
+            "title": "Información de la cuenta",
+            "profilePhoto": {
+                "label": "Elegir foto de perfil",
+                "noFileChosen": "No se ha elegido ningún archivo"
+            },
+            "firstName": {
+                "label": "Nombre"
+            },
+            "lastName": {
+                "label": "Apellido"
+            },
+            "actions": {
+                "saveButton": "Guardar"
+            }
+        },
+        "languageSettings": {
+            "title": "Idioma",
+            "languages": "inglés,francés,español,alemán,italiano",
+            "langs": {
+                "english": "inglés",
+                "french": "francés",
+                "spanish": "español",
+                "germany": "alemán",
+                "italian": "italiano",
+                "arabic": "Árabe"
+            }
+        },
+        "contactInformation": {
+            "title": "Información de contacto",
+            "email": {
+                "label": "Correo electrónico"
+            },
+            "actions": {
+                "saveButton": "Guardar"
+            }
+        },
+        "accountSecurity": {
+            "title": "Seguridad de la cuenta",
+            "password": {
+                "label": "Contraseña"
+            },
+            "confirmPassword": {
+                "label": "Confirmar contraseña"
+            },
+            "actions": {
+                "saveButton": "Guardar"
+            }
+        }
+    },
+    "statistics": {
+        "title": "Visitas diarias a mi restaurante -",
+        "visits": "visitas"
+    },
+    "share": {
+        "name": "Compartir",
+        "shareWith": {
+            "email": {
+                "name": "Correo electrónico",
+                "subject": "¡Mira este increíble menú de restaurante!",
+                "body": "Hola,\n\nEncontré este menú de restaurante fantástico y pensé que te gustaría."
+            },
+            "more": {
+                "name": "Más",
+                "title": "Compartir en redes sociales"
+            },
+            "link": {
+                "name": "Enlace",
+                "alert": "¡copiado!"
+            }
+        }
+    },
+    "login": {
+        "auth": {
+            "title": "Inicia sesión en tu cuenta",
+            "message": "¿No eres miembro?",
+            "signup": "Regístrate",
+            "trial": "Comienza una prueba gratuita de {{days}} días",
+            "invalidCredentials": "Correo electrónico o contraseña no válidos",
+            "email": "Dirección de correo electrónico",
+            "password": "Contraseña",
+            "forgotPassword": "¿Olvidaste tu contraseña?",
+            "orContinue": "O continúa con",
+            "google": "Iniciar sesión con Google",
+            "signIn": "Iniciar sesión"
+        }
+    },
+    "register": {
+        "auth": {
+            "title": "Crea tu cuenta",
+            "message": "¿Ya tienes una cuenta?",
+            "text": "Iniciar sesión",
+            "linkText": "Iniciar sesión",
+            "orContinue": "O continúa con",
+            "google": "Inicia sesión con Google",
+            "firstName": "Nombre",
+            "lastName": "Apellido",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "terms": "Al unirte, aceptas nuestros |Términos de servicio| y |Política de privacidad|",
+            "isValidName": "Solo se permiten letras y espacios, y la longitud máxima es de 45 caracteres.",
+            "isValidEmail": "Por favor, introduce una dirección de correo electrónico válida.",
+            "isValidPassword": "La contraseña debe tener al menos 6 caracteres, incluyendo letras y números",
+            "gUserExists": "La cuenta ya existe. Inicia sesión usando Google.",
+            "sUserExists": "El correo electrónico ya existe. Inicia sesión con tus credenciales."
+        }
+    },
+    "forgotPassword": {
+        "auth": {
+            "title": "Restablece tu contraseña aquí",
+            "p": "Ingrese la dirección de correo electrónico asociada con su cuenta y le enviaremos un correo electrónico con un código único que le permitirá restablecer su contraseña.",
+            "email": "Dirección de correo electrónico",
+            "rememberPassword": "¿Recuerdas tu contraseña? | Inicia sesión aquí",
+            "emailCheck": "Correo electrónico no válido",
+            "send": "Enviar"
+        }
+    },
+    "resetPassword": {
+        "auth": {
+            "title": "Restablece tu contraseña",
+            "p": "Ingrese su nueva contraseña a continuación. Evite usar contraseñas previamente utilizadas. Una vez que haya enviado su nueva contraseña, podrá iniciar sesión con sus nuevas credenciales.",
+            "code": "Código",
+            "newPassword": "Nueva contraseña",
+            "confirmPassword": "Confirmar contraseña",
+            "rememberPassword": "¿Recuerdas tu contraseña?| Inicia sesión aquí",
+            "codeCheckFormat": "El código debe tener 6 dígitos.",
+            "codeCheck": "Código incorrecto.",
+            "passwordCheck": "Las contraseñas no coinciden.",
+            "error": "Corrige el error.",
+            "validationForm": "Por favor proporcione código y contraseña",
+            "successReset": "Contraseña restablecida con éxito.",
+            "save": "Guardar"
+        }
+    },
+    "kickStartStep1": {
+        "capacity": [
+            "Pequeño (10)",
+            "Mediano (10-20)",
+            "Grande (20-30)",
+            "Extra grande (30+)"
+        ],
+        "aboutUs": [
+            "Búsqueda de Google",
+            "Redes sociales",
+            "De boca en boca",
+            "Boletín de noticias por correo electrónico",
+            "Sitio web de la empresa"
+        ],
+        "formError": "Por favor, ingrese el nombre del restaurante",
+        "errorOccured": "Ocurrió un error",
+        "title": "Comencemos a explorar más sobre el negocio de su restaurante.",
+        "restaurantName": "Nombre del restaurante",
+        "companySize": "Tamaño de la empresa",
+        "findAbout": "¿Dónde se enteró de nosotros?",
+        "next": "Siguiente"
+    },
+    "kickStartStep2": {
+        "title": "Seleccione una imagen de portada",
+        "next": "Siguiente",
+        "errorOccured": "¡Ocurrió un error! Por favor, inténtelo de nuevo.",
+        "selectAlert": "Por favor, seleccione una imagen de portada",
+        "restaurantCover": "Portada del restaurante"
+    },
+    "menuLanguages": [
+        {
+            "language": "Inglés",
+            "code": "en",
+            "country": "US"
+        },
+        {
+            "language": "Español",
+            "code": "es",
+            "country": "ES"
+        },
+        {
+            "language": "Francés",
+            "code": "fr",
+            "country": "FR"
+        },
+        {
+            "language": "Alemán",
+            "code": "de",
+            "country": "DE"
+        },
+        {
+            "language": "Italiano",
+            "code": "it",
+            "country": "IT"
+        },
+        {
+            "language": "Árabe",
+            "code": "ar",
+            "country": "SA"
+        }
+    ],
+    "kickStartLangs": {
+        "title": "¡Comencemos! Personaliza tu preferencia de idioma.",
+        "description": "Selecciona uno o más idiomas para los elementos del menú. Puedes cambiarlo más tarde.",
+        "next": "Siguiente"
+    },
+    "kickStartMode": {
+        "title": "Elige el modo Claro u Oscuro para la mejor experiencia visual",
+        "description": "Puedes cambiarlo en cualquier momento en la configuración.",
+        "light": "Claro",
+        "dark": "Oscuro",
+        "errorOccured": "¡Ocurrió un error! Por favor, inténtalo de nuevo.",
+        "next": "Siguiente"
+    },
+    "explore": {
+        "title": "Accede al menú escaneando",
+        "description": "Escanea este código QR para acceder a tu menú digital. Siempre está actualizado y es fácil de usar.",
+        "btn": "Explorar Menú",
+        "errorOccured": "¡Ocurrió un error! Por favor, inténtalo de nuevo."
+    }
+}

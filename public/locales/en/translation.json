@@ -1,0 +1,474 @@
+{
+    "pages": {
+        "menus": "Menus",
+        "statistics": "Statistics",
+        "profile": "My Profile",
+        "members": "Members",
+        "add_restaurant": "Add restaurant",
+        "logout": "Sign out",
+        "qrcode": "Customize Your QR Code Design",
+        "home": "Home",
+        "settings": "Settings",
+        "plans_payment": "Plans and payments",
+        "qr": "QR Code",
+        "login": "login",
+        "register": "Register",
+        "resetPassword": "Reset Password",
+        "forgotPassword": "Forgot password"
+    },
+    "boxUploader": {
+        "name": "Click to upload or drag and drop"
+    },
+    "menus": {
+        "init": {
+            "name": "Get Started on Your First Restaurant Menu!",
+            "button": "launch your menu"
+        },
+        "create": "create",
+        "newMenu": "New menu",
+        "menuName": "menu name",
+        "preview": "Preview",
+        "chooseMenu": "Pick one: Interactive Menu or PDF Menu",
+        "validation": {
+            "nameRequired": "Please fill out this field.",
+            "createdSuccessfully": "Menu created successfully!",
+            "pdfRequired": "You must upload at least one PDF file for your menu.",
+            "ok": "Ok",
+            "menuDeletedSuccessfully": "Menu has been deleted successfully!",
+            "menuUpdatedSuccessfully": "Menu has been updated successfully!"
+        },
+        "interactive": {
+            "name": "Interactive Menu",
+            "description": "Give details directly"
+        },
+        "pdf": {
+            "name": "PDF Menu",
+            "description": "Upload your PDF menu"
+        },
+        "menuSettings": {
+            "visibility": {
+                "name": "visibility",
+                "description": "Your menu's visibility will update instantly to Private or Public based on your selection."
+            },
+            "menuInfo": {
+                "name": "Menu Information",
+                "availability": {
+                    "name": "availability",
+                    "description": "Select the days your menu will be served. Choose specific weekdays or 'Every day' for continuous availability.",
+                    "change": "change",
+                    "days": {
+                        "eve": "eveveryday",
+                        "mon": "monday",
+                        "tue": "tuesday",
+                        "wed": "wednesday",
+                        "thu": "thursday",
+                        "fri": "friday",
+                        "sat": "saturday",
+                        "sun": "sunday"
+                    },
+                    "unavailable": "Unavailable"
+                },
+                "totalPlates": "Total Plates",
+                "delete": {
+                    "name": "delete",
+                    "alert": "Are you sure you want to delete the  menu?",
+                    "description": "Once deleted, you won't be able to recover the menu!",
+                    "cancel": "cancel"
+                },
+                "rename": {
+                    "name": "rename",
+                    "save": "Save"
+                }
+            },
+            "plates": {
+                "name": "Menu Plates",
+                "description": "Think of a good dish to serve to your customers. Start by creating new plate.",
+                "empty_list": "Your plate list is empty",
+                "addPlate": {
+                    "name": "Add Plate",
+                    "success": {
+                        "dishCreatedSuccessfully": "Dish has been created successfully!",
+                        "dishDeletedSuccessfully": "Dish has been deleted successfully!",
+                        "dishUpdatedSuccessfully": "Dish has been updated successfully!"
+                    },
+                    "errors": {
+                        "fileSize": "File size is too large. Max size is 5MB.",
+                        "fileRequired": "Please select a file as image",
+                        "nameRequired": "Please set an initial name for the plate",
+                        "priceRequired": "Please set an initial price for the plate"
+                    },
+                    "details": {
+                        "create": "New plate",
+                        "image": "Image",
+                        "plateName": "Plate name",
+                        "price": "Price",
+                        "mealSize": "meal size",
+                        "add_price": "add custom price",
+                        "description": "Description",
+                        "placeholder": "Flour, Vegetable oil, water and salt...",
+                        "allergens": {
+                            "name": "allergens",
+                            "tags": {
+                                "celery": "Celery",
+                                "cereal containing": "Cereal containing",
+                                "gluten": "Gluten",
+                                "crustaceans": "Crustaceans",
+                                "eggs": "Eggs",
+                                "fish": "Fish",
+                                "lupin": "Lupin",
+                                "milk": "Milk",
+                                "molluscs": "Molluscs",
+                                "mustard": "Mustard",
+                                "nuts": "Nuts",
+                                "peanuts": "Peanuts",
+                                "sesame seeds": "Sesame seeds",
+                                "soybeans": "Soybeans",
+                                "sulphur dioxide and sulphites": "Sulphur dioxide and sulphites"
+                            }
+                        },
+                        "tags": {
+                            "name": "tags",
+                            "tags": {
+                                "vegan": "Vegan",
+                                "vegetarian": "Vegetarian",
+                                "gluten-free": "Gluten-Free",
+                                "dairy-free": "Dairy-Free",
+                                "nut-free": "Nut-Free",
+                                "halal": "Halal",
+                                "spicy": "Spicy",
+                                "sweet": "Sweet",
+                                "salty": "Salty",
+                                "sour": "Sour",
+                                "bitter": "Bitter",
+                                "low-calorie": "Low-Calorie",
+                                "high-protein": "High-Protein"
+                            }
+                        }
+                    }
+                },
+                "delete": {
+                    "name": "delete",
+                    "alert": "Are you sure want to delete this plate?",
+                    "description": "Once you remove the plate from your collection, you can't not recover it.",
+                    "cancel": "cancel"
+                },
+                "modify": {
+                    "name": "modify",
+                    "submit": "save modifications"
+                }
+            }
+        }
+    },
+    "qrcode": {
+        "mainStyle": {
+            "name": "main style",
+            "url": "url",
+            "background": "background color",
+            "qr": "QR code color",
+            "correction": "correction level"
+        },
+        "borders&corners": {
+            "name": "borders & corners",
+            "dotStyles": {
+                "name": "dot styles",
+                "styles": "square,rounded,dots,classy,classy-rounded,extra-rounded"
+            },
+            "cornerSquareStyles": {
+                "name": "corner square styles",
+                "styles": "square,dot,extra-rounded"
+            },
+            "cornerDotStyles": {
+                "name": "corner dot styles",
+                "styles": "square,dot"
+            }
+        },
+        "logo": {
+            "name": "logo",
+            "demo": "demo",
+            "uploadLogo": {
+                "name": "upload logo",
+                "chooseFile": "choose file",
+                "notFile": "no file chosen",
+                "remove": "remove"
+            },
+            "logoSize": "logo size",
+            "logoSizeAlert": "The recommended size is 0.4 for optimal results.",
+            "hideCenter": "hide center",
+            "alert": "Important: Please scan the QR code to check if it works."
+        }
+    },
+    "settings": {
+        "essentialDetails": {
+            "title": "Essential Details",
+            "restaurantName": "Restaurant Name",
+            "liveMenu": "Live Menu",
+            "location": "Location",
+            "phoneNumber": "Phone Number",
+            "currency": "Currency",
+            "description": "Description",
+            "saveButton": "Save",
+            "restaurantNameValidation": "Only alphanumeric characters and spaces are allowed, and maximum length is 25 characters."
+        },
+        "languages": "Languages",
+        "favorites": "Favorites",
+        "autocomplete": {
+            "label": "Multiple Autocomplete"
+        },
+        "serviceStatus": {
+            "title": "Service Status",
+            "restaurantOpening": "Restaurant Opening",
+            "openCloseInstructions": "To open or close the restaurant right now, select the corresponding checkbox below."
+        },
+        "workingHours": {
+            "title": "Working Hours",
+            "from": "From:",
+            "to": "To:",
+            "resetTime": "Reset Time"
+        },
+        "look": {
+            "title": "Look",
+            "coverImage": {
+                "label": "Cover Image",
+                "instructions": "Upload a captivating cover image to make a strong first impression. Choose something eye-catching and relevant.",
+                "uploadInstructions": "Click to upload or drag and drop",
+                "uploadButton": "Upload Cover Image"
+            }
+        },
+        "socialMedia": {
+            "title": "Social Media",
+            "instructions": "Let your customers connect with you online. Easily share your social media profiles",
+            "instagram": "Instagram",
+            "facebook": "Facebook",
+            "tiktok": "Tiktok",
+            "saveButton": "Save"
+        },
+        "wifi": {
+            "title": "Wifi",
+            "instructions": "Enable your restaurant's Wi-Fi so customers can easily connect to your network.",
+            "ssid": "Network name (SSID)",
+            "password": "Password",
+            "saveButton": "Save"
+        },
+        "alerts": {
+            "coverImageError": "Please upload cover Image",
+            "saved": "Changes saved successfully",
+            "fileSize": "File size is too large. Max size is 5MB.",
+            "selectFile": "Please select a file"
+        }
+    },
+    "profil": {
+        "accountInformation": {
+            "title": "Account Information",
+            "profilePhoto": {
+                "label": "Choose profile photo",
+                "noFileChosen": "No file chosen"
+            },
+            "firstName": {
+                "label": "First name"
+            },
+            "lastName": {
+                "label": "Last name"
+            },
+            "actions": {
+                "saveButton": "Save"
+            }
+        },
+        "languageSettings": {
+            "title": "Language",
+            "languages": "english,french,spanish,german,italian",
+            "langs": {
+                "english": "english",
+                "french": "french",
+                "spanish": "spanish",
+                "germany": "german",
+                "italian": "italian",
+                "arabic": "arabic"
+            }
+        },
+        "contactInformation": {
+            "title": "Contact Information",
+            "email": {
+                "label": "Address email"
+            },
+            "actions": {
+                "saveButton": "Save"
+            }
+        },
+        "accountSecurity": {
+            "title": "Account Security",
+            "password": {
+                "label": "Password"
+            },
+            "confirmPassword": {
+                "label": "Confirm password"
+            },
+            "actions": {
+                "saveButton": "Save"
+            }
+        }
+    },
+    "statistics": {
+        "title": "Daily Visits to My Restaurant -",
+        "visits": "visits"
+    },
+    "share": {
+        "name": "Share",
+        "shareWith": {
+            "email": {
+                "name": "Email",
+                "subject": "Check out this amazing restaurant menu!",
+                "body": "Hi there,\n\nI found this fantastic restaurant menu and thought you might enjoy it."
+            },
+            "more": {
+                "name": "More",
+                "title": "Share via social networks"
+            },
+            "link": {
+                "name": "Link",
+                "alert": "copied!"
+            }
+        }
+    },
+    "login": {
+        "auth": {
+            "title": "Sign in to your account",
+            "message": "Not a member?",
+            "signup": "Sign up",
+            "trial": "Start a {{days}} day free trial",
+            "invalidCredentials": "Invalid email or password",
+            "email": "Email address",
+            "password": "Password",
+            "forgotPassword": "Forgot password",
+            "orContinue": "Or continue with",
+            "google": "Login with Google",
+            "signIn": "Sign In"
+        }
+    },
+    "register": {
+        "auth": {
+            "title": "Create your account",
+            "message": "Already have an account?",
+            "text": "Log in",
+            "linkText": "Sign in",
+            "orContinue": "Or continue with",
+            "google": "Login with Google",
+            "firstName": "First name",
+            "lastName": "Last name",
+            "email": "Email address",
+            "password": "Password",
+            "terms": "By joining, you agree to our |Terms of Service| and |Privacy Policy|",
+            "isValidName": "Only alphabets and spaces are allowed, and maximum length is 45 characters.",
+            "isValidEmail": "Please enter a valid email address.",
+            "isValidPassword": "Password must be at least 6 characters long, contain at least letters and numbers",
+            "gUserExists": "The account already exists. Please log in using Google.",
+            "sUserExists": "The email already exists. Please log in using your credentials."
+        }
+    },
+    "forgotPassword": {
+        "auth": {
+            "title": "Reset your password here",
+            "p": "Enter the email address associated with your account and we will send you an email with a one-time code that will allow you to reset your password.",
+            "email": "Email address",
+            "rememberPassword": "Remember your password?| Login here",
+            "emailCheck": "Invalid email",
+            "send": "Send"
+        }
+    },
+    "resetPassword": {
+        "auth": {
+            "title": "Reset your password",
+            "p": "Enter your new password below. Avoid using previously used passwords. Once you've submitted your new password, you'll be able to log in using your new credentials.",
+            "code": "Code",
+            "newPassword": "New password",
+            "confirmPassword": "Confirm password",
+            "rememberPassword": "Remember your password?| Login here",
+            "codeCheckFormat": "Code must be 6 digits.",
+            "codeCheck": "Incorrect code.",
+            "passwordCheck": "Passwords do not match.",
+            "error": "Correct the error.",
+            "validationForm": "Please provide code and password",
+            "successReset": "Password reset successfully.",
+            "save": "Save"
+        }
+    },
+    "kickStartStep1": {
+        "capacity": [
+            "Small (10)",
+            "Medium (10-20)",
+            "Large (20-30)",
+            "Extra large (30+)"
+        ],
+        "aboutUs": [
+            "Google Search",
+            "Social Media",
+            "Word of Mouth",
+            "Email Newsletter",
+            "Company Website"
+        ],
+        "formError": "Please enter the restaurant name",
+        "errorOccured": "An error occurred",
+        "title": "Let's begin exploring more about your restaurant's business.",
+        "restaurantName": "Restaurant Name",
+        "companySize": "Company Size",
+        "findAbout": "Where did you find out about us?",
+        "next": "Next"
+    },
+    "kickStartStep2": {
+        "title": "Select a cover image",
+        "next": "Next",
+        "errorOccured": "An error occurred! Please try again!",
+        "selectAlert": "Please select a cover image",
+        "restaurantCover": "Restaurant Cover"
+    },
+    "menuLanguages": [
+        {
+            "language": "English",
+            "code": "en",
+            "country": "US"
+        },
+        {
+            "language": "Spanish",
+            "code": "es",
+            "country": "ES"
+        },
+        {
+            "language": "French",
+            "code": "fr",
+            "country": "FR"
+        },
+        {
+            "language": "German",
+            "code": "de",
+            "country": "DE"
+        },
+        {
+            "language": "Italian",
+            "code": "it",
+            "country": "IT"
+        },
+        {
+            "language": "Arabic",
+            "code": "ar",
+            "country": "SA"
+        }
+    ],
+    "kickStartLangs": {
+        "title": "Let's get started! Customize Your Language Preference.",
+        "description": "Select one or more languages for menu items. You can change this later.",
+        "next": "Next"
+    },
+    "kickStartMode": {
+        "title": "Choose Light or Dark mode for the best viewing experience",
+        "description": "Feel free to change it anytime in settings.",
+        "light": "Light",
+        "dark": "Dark",
+        "errorOccured": "An error occurred! Please try again!",
+        "next": "Next"
+    },
+    "explore": {
+        "title": "Go to the Menu by scanning",
+        "description": "Scan this QR code to access your digital menu. It's always up-to-date and easy to use.",
+        "btn": "Explore Menu",
+        "errorOccured": "An error occurred! Please try again!"
+    }
+}

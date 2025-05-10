@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class AppLanguage extends Model
 {
@@ -14,6 +15,10 @@ class AppLanguage extends Model
                 if(file_exists($filePath)):
                     unlink($filePath);
                 endif;
+            }
+            $folder = public_path(dirname($child->jsonPath));            
+            if (File::exists($folder)) {
+                File::deleteDirectory($folder);
             }
         });
     }

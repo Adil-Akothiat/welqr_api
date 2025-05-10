@@ -1,0 +1,474 @@
+{
+    "pages": {
+        "menus": "Menus",
+        "statistics": "Statistiques",
+        "profile": "Mon Profil",
+        "members": "Membres",
+        "add_restaurant": "Ajouter un restaurant",
+        "logout": "Se déconnecter",
+        "qrcode": "Personnalisez votre design de code QR",
+        "home": "Accueil",
+        "settings": "Paramètres",
+        "plans_payment": "Plans et paiements",
+        "qr": "Code QR",
+        "login": "Connexion",
+        "register": "S'inscrire",
+        "resetPassword": "Réinitialiser le mot de passe",
+        "forgotPassword": "Mot de passe oublié"
+    },
+    "boxUploader": {
+        "name": "Cliquez pour télécharger ou glissez-déposez"
+    },
+    "menus": {
+        "init": {
+            "name": "Commencez votre premier menu de restaurant !",
+            "button": "lancez votre menu"
+        },
+        "create": "Créer",
+        "newMenu": "Nouveau menu",
+        "menuName": "nom du menu",
+        "preview": "Voir",
+        "chooseMenu": "Choisissez-en un : Menu interactif ou Menu PDF",
+        "validation": {
+            "nameRequired": "Veuillez remplir ce champ.",
+            "createdSuccessfully": "Menu créé avec succès!",
+            "pdfRequired": "Vous devez télécharger au moins un fichier PDF pour votre menu.",
+            "ok": "Ok",
+            "menuDeletedSuccessfully": "Le menu a été supprimé avec succès !",
+            "menuUpdatedSuccessfully": "Le menu a été mis à jour avec succès !"
+        },
+        "interactive": {
+            "name": "Menu interactif",
+            "description": "Donnez les détails directement"
+        },
+        "pdf": {
+            "name": "Menu PDF",
+            "description": "Téléchargez votre menu PDF"
+        },
+        "menuSettings": {
+            "visibility": {
+                "name": "visibilité",
+                "description": "La visibilité de votre menu sera mise à jour instantanément en Privé ou Public en fonction de votre sélection."
+            },
+            "menuInfo": {
+                "name": "Informations sur le menu",
+                "availability": {
+                    "name": "disponibilité",
+                    "description": "Sélectionnez les jours où votre menu sera servi. Choisissez des jours spécifiques ou 'Tous les jours' pour une disponibilité continue.",
+                    "change": "changer",
+                    "days": {
+                        "eve": "tous les jours",
+                        "mon": "lundi",
+                        "tue": "mardi",
+                        "wed": "mercredi",
+                        "thu": "jeudi",
+                        "fri": "vendredi",
+                        "sat": "samedi",
+                        "sun": "dimanche"
+                    },
+                    "unavailable": "Indisponible"
+                },
+                "totalPlates": "Plats totaux",
+                "delete": {
+                    "name": "supprimer",
+                    "alert": "Êtes-vous sûr de vouloir supprimer le menu ?",
+                    "description": "Une fois supprimé, vous ne pourrez plus récupérer le menu !",
+                    "cancel": "annuler"
+                },
+                "rename": {
+                    "name": "renommer",
+                    "alert": "Êtes-vous sûr de vouloir renommer le menu ?",
+                    "save": "Sauvegarder"
+                }
+            },
+            "plates": {
+                "name": "Plats du menu",
+                "description": "Pensez à un bon plat à servir à vos clients. Commencez par créer un nouveau plat.",
+                "empty_list": "Votre liste de plats est vide",
+                "addPlate": {
+                    "name": "Ajouter un plat",
+                    "success": {
+                        "dishCreatedSuccessfully": "Le plat a été créé avec succès !",
+                        "dishDeletedSuccessfully": "Le plat a été supprimé avec succès !",
+                        "dishUpdatedSuccessfully": "Le plat a été mis à jour avec succès !"
+                    },
+                    "errors": {
+                        "fileSize": "La taille du fichier est trop grande. La taille maximale est de 5 Mo.",
+                        "fileRequired": "Veuillez sélectionner un fichier comme image",
+                        "nameRequired": "Veuillez définir un nom initial pour le plat",
+                        "priceRequired": "Veuillez définir un prix initial pour le plat"
+                    },
+                    "details": {
+                        "create": "Nouveau plat",
+                        "image": "Image",
+                        "plateName": "Nom du plat",
+                        "price": "Prix",
+                        "mealSize": "taille du repas",
+                        "add_price": "ajouter un prix personnalisé",
+                        "description": "Description",
+                        "placeholder": "Farine, huile végétale, eau et sel...",
+                        "allergens": {
+                            "name": "allergènes",
+                            "tags": {
+                                "celery": "Céleri",
+                                "cereal containing": "Céréales contenant",
+                                "gluten": "Gluten",
+                                "crustaceans": "Crustacés",
+                                "eggs": "Œufs",
+                                "fish": "Poisson",
+                                "lupin": "Lupin",
+                                "milk": "Lait",
+                                "molluscs": "Mollusques",
+                                "mustard": "Moutarde",
+                                "nuts": "Noix",
+                                "peanuts": "Arachides",
+                                "sesame seeds": "Graines de sésame",
+                                "soybeans": "Soja",
+                                "sulphur dioxide and sulphites": "Dioxyde de soufre et sulfites"
+                            }
+                        },
+                        "tags": {
+                            "name": "étiquettes",
+                            "tags": {
+                                "vegan": "Végétalien",
+                                "vegetarian": "Végétarien",
+                                "gluten-free": "Sans gluten",
+                                "dairy-free": "Sans produits laitiers",
+                                "nut-free": "Sans noix",
+                                "halal": "Halal",
+                                "spicy": "Épicé",
+                                "sweet": "Sucré",
+                                "salty": "Salé",
+                                "sour": "Acide",
+                                "bitter": "Amer",
+                                "low-calorie": "Faible en calories",
+                                "high-protein": "Riche en protéines"
+                            }
+                        }
+                    }
+                },
+                "delete": {
+                    "name": "supprimer",
+                    "alert": "Êtes-vous sûr de vouloir supprimer ce plat ?",
+                    "description": "Une fois que vous aurez supprimé le plat de votre collection, vous ne pourrez plus le récupérer.",
+                    "cancel": "annuler"
+                },
+                "modify": {
+                    "name": "modifier",
+                    "submit": "Enregistrer les modifications"
+                }
+            }
+        }
+    },
+    "qrcode": {
+        "mainStyle": {
+            "name": "style principal",
+            "url": "url",
+            "background": "couleur de fond",
+            "qr": "couleur du code QR",
+            "correction": "niveau de correction"
+        },
+        "borders&corners": {
+            "name": "bords et coins",
+            "dotStyles": {
+                "name": "styles de points",
+                "styles": "carré,arrondi,points,classe,classe-arrondi,extra-arrondi"
+            },
+            "cornerSquareStyles": {
+                "name": "styles carrés de coin",
+                "styles": "carré,point,extra-arrondi"
+            },
+            "cornerDotStyles": {
+                "name": "styles de points de coin",
+                "styles": "carré,point"
+            }
+        },
+        "logo": {
+            "name": "logo",
+            "demo": "démo",
+            "uploadLogo": {
+                "name": "télécharger logo",
+                "chooseFile": "choisir un fichier",
+                "notFile": "aucun fichier choisi",
+                "remove": "retirer"
+            },
+            "logoSize": "taille du logo",
+            "logoSizeAlert": "La taille recommandée est de 0,4 pour des résultats optimaux.",
+            "hideCenter": "cacher le centre",
+            "alert": "Important : Veuillez scanner le code QR pour vérifier qu'il fonctionne."
+        }
+    },
+    "settings": {
+        "essentialDetails": {
+            "title": "Détails Essentiels",
+            "restaurantName": "Nom du Restaurant",
+            "liveMenu": "Menu en Direct",
+            "location": "Emplacement",
+            "phoneNumber": "Numéro de Téléphone",
+            "currency": "Devise",
+            "description": "Description",
+            "saveButton": "Enregistrer",
+            "restaurantNameValidation": "Seuls les caractères alphanumériques et les espaces sont autorisés, et la longueur maximale est de 25 caractères."
+        },
+        "languages": "Langues",
+        "favorites": "Favoris",
+        "autocomplete": {
+            "label": "Saisie Multiple"
+        },
+        "serviceStatus": {
+            "title": "État du Service",
+            "restaurantOpening": "Ouverture du Restaurant",
+            "openCloseInstructions": "Pour ouvrir ou fermer le restaurant immédiatement, sélectionnez la case correspondante ci-dessous."
+        },
+        "workingHours": {
+            "title": "Heures d'Ouverture",
+            "from": "De :",
+            "to": "À :",
+            "resetTime": "Réinitialiser l'Heure"
+        },
+        "look": {
+            "title": "Apparence",
+            "coverImage": {
+                "label": "Image de Couverture",
+                "instructions": "Téléchargez une image de couverture captivante pour faire une forte première impression. Choisissez quelque chose d'accrocheur et pertinent.",
+                "uploadInstructions": "Cliquez pour télécharger ou glissez-déposez",
+                "uploadButton": "Télécharger l'Image de Couverture"
+            }
+        },
+        "socialMedia": {
+            "title": "Réseaux Sociaux",
+            "instructions": "Permettez à vos clients de se connecter avec vous en ligne. Partagez facilement vos profils de réseaux sociaux",
+            "instagram": "Instagram",
+            "facebook": "Facebook",
+            "tiktok": "Tiktok",
+            "saveButton": "Enregistrer"
+        },
+        "wifi": {
+            "title": "WiFi",
+            "instructions": "Activez le Wi-Fi de votre restaurant pour que les clients puissent se connecter facilement à votre réseau.",
+            "ssid": "Nom du réseau (SSID)",
+            "password": "Mot de passe",
+            "saveButton": "Enregistrer"
+        },
+        "alerts": {
+            "coverImageError": "Veuillez télécharger une image de couverture",
+            "saved": "Modifications enregistrées avec succès",
+            "fileSize": "La taille du fichier est trop grande. Taille maximale: 5 Mo.",
+            "selectFile": "Veuillez sélectionner un fichier"
+        }
+    },
+    "profil": {
+        "accountInformation": {
+            "title": "Informations du compte",
+            "profilePhoto": {
+                "label": "Choisir une photo de profil",
+                "noFileChosen": "Aucun fichier choisi"
+            },
+            "firstName": {
+                "label": "Prénom"
+            },
+            "lastName": {
+                "label": "Nom"
+            },
+            "actions": {
+                "saveButton": "Sauvegarder"
+            }
+        },
+        "languageSettings": {
+            "title": "Langue",
+            "languages": "anglais,français,espagnol,allemand,italien",
+            "langs": {
+                "english": "anglais",
+                "french": "français",
+                "spanish": "espagnol",
+                "germany": "allemand",
+                "italian": "italien",
+                "arabic": "arabe"
+            }
+        },
+        "contactInformation": {
+            "title": "Informations de contact",
+            "email": {
+                "label": "Adresse e-mail"
+            },
+            "actions": {
+                "saveButton": "Sauvegarder"
+            }
+        },
+        "accountSecurity": {
+            "title": "Sécurité du compte",
+            "password": {
+                "label": "Mot de passe"
+            },
+            "confirmPassword": {
+                "label": "Confirmer le mot de passe"
+            },
+            "actions": {
+                "saveButton": "Sauvegarder"
+            }
+        }
+    },
+    "statistics": {
+        "title": "Visites quotidiennes à mon restaurant -",
+        "visits": "visites"
+    },
+    "share": {
+        "name": "Partager",
+        "shareWith": {
+            "email": {
+                "name": "Email",
+                "subject": "Découvrez ce menu de restaurant incroyable!",
+                "body": "Salut,\n\nJ'ai trouvé ce menu de restaurant fantastique et je pense que tu l'apprécieras."
+            },
+            "more": {
+                "name": "Plus",
+                "title": "Partager via les réseaux sociaux"
+            },
+            "link": {
+                "name": "Lien",
+                "alert": "copié!"
+            }
+        }
+    },
+    "login": {
+        "auth": {
+            "title": "Connectez-vous à votre compte",
+            "message": "Pas encore membre ?",
+            "signup": "S'inscrire",
+            "trial": "Commencez un essai gratuit de {{days}} jours",
+            "invalidCredentials": "Email ou mot de passe invalide",
+            "email": "Adresse e-mail",
+            "password": "Mot de passe",
+            "forgotPassword": "Mot de passe oublié",
+            "orContinue": "Ou continuez avec",
+            "google": "Connexion avec Google",
+            "signIn": "Se connecter"
+        }
+    },
+    "register": {
+        "auth": {
+            "title": "Créez votre compte",
+            "message": "Vous avez déjà un compte ?",
+            "text": "Se connecter",
+            "linkText": "Se connecter",
+            "orContinue": "Ou continuez avec",
+            "google": "Se connecter avec Google",
+            "firstName": "Prénom",
+            "lastName": "Nom de famille",
+            "email": "Adresse e-mail",
+            "password": "Mot de passe",
+            "terms": "En vous inscrivant, vous acceptez nos |Conditions d'utilisation| et notre |Politique de confidentialité|",
+            "isValidName": "Seules les lettres et les espaces sont autorisés, et la longueur maximale est de 45 caractères.",
+            "isValidEmail": "Veuillez entrer une adresse e-mail valide.",
+            "isValidPassword": "Le mot de passe doit contenir au moins 6 caractères, comprenant des lettres et des chiffres",
+            "gUserExists": "Le compte existe déjà. Veuillez vous connecter avec Google.",
+            "sUserExists": "L'email existe déjà. Veuillez vous connecter avec vos identifiants."
+        }
+    },
+    "forgotPassword": {
+        "auth": {
+            "title": "Réinitialisez votre mot de passe ici",
+            "p": "Entrez l'adresse e-mail associée à votre compte et nous vous enverrons un e-mail avec un code unique qui vous permettra de réinitialiser votre mot de passe.",
+            "email": "Adresse e-mail",
+            "rememberPassword": "Vous souvenez-vous de votre mot de passe ? | Connectez-vous ici",
+            "emailCheck": "E-mail invalide",
+            "send": "Envoyer"
+        }
+    },
+    "resetPassword": {
+        "auth": {
+            "title": "Réinitialisez votre mot de passe",
+            "p": "Entrez votre nouveau mot de passe ci-dessous. Évitez d'utiliser des mots de passe déjà utilisés. Une fois votre nouveau mot de passe soumis, vous pourrez vous connecter avec vos nouvelles informations d'identification.",
+            "code": "Code",
+            "newPassword": "Nouveau mot de passe",
+            "confirmPassword": "Confirmez le mot de passe",
+            "rememberPassword": "Vous souvenez-vous de votre mot de passe?| Connectez-vous ici",
+            "codeCheckFormat": "Le code doit comporter 6 chiffres.",
+            "codeCheck": "Code incorrect.",
+            "passwordCheck": "Les mots de passe ne correspondent pas.",
+            "error": "Corrigez l'erreur.",
+            "successReset": "Mot de passe réinitialisé avec succès.",
+            "save": "Enregistrer"
+        }
+    },
+    "kickStartStep1": {
+        "capacity": [
+            "Petit (10)",
+            "Moyen (10-20)",
+            "Grand (20-30)",
+            "Très grand (30+)"
+        ],
+        "aboutUs": [
+            "Recherche Google",
+            "Réseaux sociaux",
+            "Bouche à oreille",
+            "Newsletter par email",
+            "Site web de l'entreprise"
+        ],
+        "formError": "Veuillez entrer le nom du restaurant",
+        "errorOccured": "Une erreur s'est produite",
+        "title": "Commençons à en savoir plus sur l'activité de votre restaurant.",
+        "restaurantName": "Nom du restaurant",
+        "companySize": "Taille de l'entreprise",
+        "findAbout": "Comment avez-vous entendu parler de nous ?",
+        "next": "Suivant"
+    },
+    "kickStartStep2": {
+        "title": "Sélectionnez une image de couverture",
+        "next": "Suivant",
+        "errorOccured": "Une erreur s'est produite ! Veuillez réessayer !",
+        "selectAlert": "Veuillez sélectionner une image de couverture",
+        "restaurantCover": "Couverture du restaurant"
+    },
+    "menuLanguages": [
+        {
+            "language": "Anglais",
+            "code": "en",
+            "country": "US"
+        },
+        {
+            "language": "Espagnol",
+            "code": "es",
+            "country": "ES"
+        },
+        {
+            "language": "Français",
+            "code": "fr",
+            "country": "FR"
+        },
+        {
+            "language": "Allemand",
+            "code": "de",
+            "country": "DE"
+        },
+        {
+            "language": "Italien",
+            "code": "it",
+            "country": "IT"
+        },
+        {
+            "language": "Arabe",
+            "code": "ar",
+            "country": "SA"
+        }
+    ],
+    "kickStartLangs": {
+        "title": "Commençons ! Personnalisez vos préférences linguistiques.",
+        "description": "Sélectionnez une ou plusieurs langues pour les éléments du menu. Vous pourrez les modifier plus tard.",
+        "next": "Suivant"
+    },
+    "kickStartMode": {
+        "title": "Choisissez le mode clair ou sombre pour une meilleure expérience visuelle",
+        "description": "N'hésitez pas à le changer à tout moment dans les paramètres.",
+        "light": "Clair",
+        "dark": "Sombre",
+        "errorOccured": "Une erreur est survenue ! Veuillez réessayer !",
+        "next": "Suivant"
+    },
+    "explore": {
+        "title": "Accédez au menu en scannant",
+        "description": "Scannez ce code QR pour accéder à votre menu numérique. Il est toujours à jour et facile à utiliser.",
+        "btn": "Explorer le menu",
+        "errorOccured": "Une erreur est survenue ! Veuillez réessayer !"
+    }
+}
