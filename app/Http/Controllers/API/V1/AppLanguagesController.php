@@ -40,7 +40,7 @@ class AppLanguagesController extends Controller
             }
             File::put($file, json_encode([], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-            $path = $request->file('file')->store('app/languages/falgs', 'public');
+            $path = $request->file('file')->store('app/languages/flags', 'public');
             $appLanguage = new AppLanguage;
             $appLanguage->language = $request->language;
             $appLanguage->code = $request->code;
@@ -79,7 +79,7 @@ class AppLanguagesController extends Controller
             ]);
             $path = $request->path;
             if($request->file) {
-                $path = $request->file('file')->store('app/languages/falgs', 'public');
+                $path = $request->file('file')->store('app/languages/flags', 'public');
             }
             $appLanguage = AppLanguage::find($id);
             if(!$appLanguage) {
