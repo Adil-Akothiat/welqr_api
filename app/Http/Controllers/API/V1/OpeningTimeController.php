@@ -34,7 +34,7 @@ class OpeningTimeController extends Controller
             $openingTime = new OpeningTimes;
             $openingTime->from = $request->from ?? "08:00";
             $openingTime->to = $request->to ?? "18:00";
-            $openingTime->openStatus = $request->openStatus ?? 'open';
+            $openingTime->open = $request->openStatus ?? true;
             $openingTime->restaurant_id = $request->restaurant_id;
             $openingTime->save();
             return Response()->json(['opening_time'=> $openingTime, 'success'=>true])->header('Content-Type', 'application/json');
@@ -68,7 +68,7 @@ class OpeningTimeController extends Controller
             }
             $openingTime->from = $request->from;
             $openingTime->to = $request->to;
-            $openingTime->openStatus = $request->openStatus;
+            $openingTime->open = $request->openStatus;
             $openingTime->save();
             return Response()->json(['opening_time'=> $openingTime, 'success'=>true])->header('Content-Type', 'application/json');
         } catch(Exception $e) {

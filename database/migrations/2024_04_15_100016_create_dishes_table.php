@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->longText('name');
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
             $table->string('price')->nullable();
-            $table->string('prices')->nullable();
-            $table->string('allergens')->nullable();
-            $table->string('tags')->nullable();
+            $table->longText('prices')->nullable();
+            $table->longText('allergens')->nullable();
+            $table->longText('tags')->nullable();
             $table->boolean('visibility')->default(true);
             $table->unsignedBigInteger('menu_id');
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');

@@ -281,9 +281,10 @@
                 "english": "anglais",
                 "french": "français",
                 "spanish": "espagnol",
-                "germany": "allemand",
                 "italian": "italien",
-                "arabic": "arabe"
+                "arabic": "arabe",
+                "germany": "allemand",
+                "chinese": "chinois"
             }
         },
         "contactInformation": {

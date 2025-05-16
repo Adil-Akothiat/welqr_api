@@ -14,3 +14,4 @@ require __DIR__.'/myRoutes/dish.php';
 require __DIR__.'/myRoutes/public.php';
 require __DIR__.'/myRoutes/serveAssets.php';
 require __DIR__.'/myRoutes/appLanguages.php';
+require __DIR__.'/myRoutes/translations.php';
