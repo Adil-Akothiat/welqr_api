@@ -4,6 +4,7 @@
 /public/hot
 /public/assets/
 /public/locales/
+/public/locales/*
 /public/storage
 /storage/*.key
 /storage/pail
