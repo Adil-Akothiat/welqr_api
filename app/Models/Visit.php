@@ -8,6 +8,8 @@ use Qrcode;
 
 class Visit extends Model
 {
+    protected $table = "visits";
+    protected $fillable = ['url', 'referrer', 'userAgent', 'qrcode_id'];
     public function qrcode(): BelongsTo
     {
         return $this->belongsTo(Qrcode::class);

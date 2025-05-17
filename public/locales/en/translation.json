@@ -310,7 +310,15 @@
     },
     "statistics": {
         "title": "Daily Visits to My Restaurant -",
-        "visits": "visits"
+        "visits": {
+            "name": "visits",
+            "total": "total visits",
+            "visitPerDay": "visit per day",
+            "filter": {
+                "latest": "latest",
+                "last7d": "last 7 days"
+            }
+        }
     },
     "share": {
         "name": "Share",

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->string('referrer');
-            $table->string('userAgent');
+            $table->string('referrer')->nullable();
+            $table->string('userAgent')->nullable();
             $table->unsignedBigInteger('qrcode_id');
             $table->foreign('qrcode_id')->references('id')->on('qrcode')->onDelete('cascade');
             $table->timestamps();
