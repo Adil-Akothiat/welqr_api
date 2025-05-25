@@ -16,3 +16,4 @@ require __DIR__.'/myRoutes/serveAssets.php';
 require __DIR__.'/myRoutes/appLanguages.php';
 require __DIR__.'/myRoutes/translations.php';
 require __DIR__.'/myRoutes/visit.php';
+require __DIR__.'/myRoutes/plans.php';
