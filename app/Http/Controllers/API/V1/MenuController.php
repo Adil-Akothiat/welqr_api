@@ -108,7 +108,7 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         if(!$menu) {
-            throw new NotFoundHttpException("Menu not found"); 
+            throw new NotFoundHttpException("Menu not found");
         }
         if($menu->filePath) {
             $files = json_decode($menu->filePath);

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Restaurant;
-use App\Models\RestaurantCovers;
+use App\Models\{ RestaurantCovers, DefaultMenu, Menu, Dish };
 use Exception;
 use App\Helpers\Utilities;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -36,7 +36,8 @@ class RestaurantController extends Controller
             'file'=> 'nullable|file|image|max:5120',
             'description'=> 'max:255',
             'qrcode_id'=> 'required',
-            'path'=> 'nullable'
+            'path'=> 'nullable',
+            'initialize'=> 'nullable|boolean'
         ]);
         $path = null;
         if($request->file) {
@@ -52,7 +53,35 @@ class RestaurantController extends Controller
         $restaurant->qrcode_id = $request->qrcode_id;
         $restaurant->user_id = $request->user()->id;
         $restaurant->save();
-
+        if($request->initialize) {
+            $predefinedMenus = DefaultMenu::with('defaultDishes')->get();
+            foreach($predefinedMenus as $predefinedMenu):
+                $lastPosition = Menu::max('order') ?? 0;
+                $menu = new Menu;
+                $menu->name = $predefinedMenu->name;
+                $menu->order = $lastPosition + 1;
+                $menu->filePath = null;
+                $menu->restaurant_id = $restaurant->id;
+                $menu->save();
+                $newImagePath=null;
+                foreach($predefinedMenu->defaultDishes as $defaultDish):
+                    $dish = new Dish;
+                    if ($defaultDish->image) {
+                        $path = Utilities::copyFile('assets/'.$defaultDish->image, 'assets/dish');
+                        $dish->name = $defaultDish->name;
+                        $dish->description = $defaultDish->description;
+                        $dish->image = $path;
+                        $dish->price = $defaultDish->price;
+                        $dish->prices = $defaultDish->prices;
+                        $dish->allergens = $defaultDish->allergens;
+                        $dish->tags = $defaultDish->tags;
+                        $dish->visibility = $defaultDish->visibility;
+                        $dish->menu_id = $menu->id;
+                        $dish->save();
+                    }
+                endforeach;
+            endforeach;
+        }
         return Response()->json(['restaurant'=> $restaurant])->header('Content-Type', 'application/json');
         }catch (Exception $e) {
             return Utilities::errorsHandler($e);

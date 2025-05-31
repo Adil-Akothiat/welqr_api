@@ -7,6 +7,8 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Http\Response;
 use Exception;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class Utilities {
     public static function errorsHandler(Exception $e) {
@@ -39,5 +41,21 @@ class Utilities {
             array_push($arr, $letters[random_int($i, strlen($letters)-1)]);
         endfor;
         return implode('', $arr);
+    }
+
+    public static function copyFile($file, $destinationDir)
+    {   
+        $extension = explode('.', $file)[1];
+        $sourcePath = public_path($file);
+        $fileName = Str::uuid().'.'.$extension;
+        if(file_exists($sourcePath)) {
+            if(!file_exists(public_path($destinationDir))) {
+                File::makeDirectory(public_path($destinationDir), 0755, true);
+            }
+            $destination = public_path($destinationDir).'/'.$fileName;
+            $copy = File::copy($sourcePath, $destination);
+            return explode('/', $destinationDir)[count(explode('/', $destinationDir))-1].'/'.$fileName;
+        }
+        return false;
     }
 }

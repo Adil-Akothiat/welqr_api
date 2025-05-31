@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('default_menus', function (Blueprint $table) {
             $table->id();
-            $table->longText('name');
+            $table->string('name');
             $table->boolean('visibility')->default(true);
             $table->string('availibility')->default('monday,tuesday,wednesday,thursday,friday,saturday,sunday');
             $table->string('filePath')->nullable()->default(null);
             $table->integer('order');
-            $table->unsignedBigInteger('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurant')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('default_menus');
     }
 };

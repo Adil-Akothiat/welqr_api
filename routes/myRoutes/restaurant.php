@@ -9,11 +9,7 @@ use App\Http\Controllers\TestController;
 Route::group(["prefix"=> "v1", "namespace"=> "App\Http\Controllers\API\V1"], function() {
 
     Route::middleware('auth:sanctum')->group(function () {
-        Route::post('/restaurants', [RestaurantController::class, "store"]);
-        Route::post('/restaurants/{id}', [RestaurantController::class, "update"]);
-        Route::get('/restaurants', [RestaurantController::class, "index"]);
-        Route::get('/restaurants/{id}', [RestaurantController::class, "show"]);
-        Route::delete('/restaurants/{id}', [RestaurantController::class, "destroy"]);
+        Route::apiResource('/restaurants', RestaurantController::class);
         Route::get('/user/restaurants/{user_id}', [RestaurantController::class,'getRestaurantsByUser']);
         Route::post('restaurantCover', [RestaurantController::class, 'createCover']);
         Route::get('restaurantCover/{id}', [RestaurantController::class, 'getCovers']);
