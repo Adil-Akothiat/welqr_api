@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasOne, HasMany};
-use App\Models\{User, Language, Menu, Review, Qrcode, Address, OpeningTimes, SocialNteworks, Wifi };
+use App\Models\{User, Language, Menu, Review, Qrcode, Address, OpeningTimes, SocialNteworks, Wifi, RestaurantCovers };
+use Illuminate\Support\Facades\Log;
 
 class Restaurant extends Model
 {
@@ -44,5 +45,29 @@ class Restaurant extends Model
     public function wifi(): HasMany
     {
         return $this->hasMany(Wifi::class);
+    }
+    
+    protected static function booted() {
+        static::deleting(function ($child) {
+            // delete qrcode
+            $qrcode = Qrcode::find($child->qrcode_id);
+            $qrcode->delete();
+            if($child->coverImage) {
+                $covers = RestaurantCovers::all();
+                $exists = false;
+                foreach($covers as $cover):
+                    if($cover->path === $child->coverImage):
+                        $exists = true;
+                        break;
+                    endif;
+                endforeach;
+                if($exists === false) {
+                    $filePath = public_path('assets/'.$child->coverImage);
+                    if(file_exists($filePath)):
+                        unlink($filePath);
+                    endif;
+                }
+            }
+        });
     }
 }
