@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Log;
 class Restaurant extends Model
 {
     protected $table = "restaurant";
+    protected $casts = [
+        'isActive'=> 'boolean'
+    ];
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

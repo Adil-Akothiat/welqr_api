@@ -16,7 +16,7 @@ class QrcodeController extends Controller
                 'url'=> 'required|unique:qrcode',
                 'name'=> 'required|unique:qrcode'
             ]);
-            $qrcode = new Qrcode;
+            $qrcode = new Qrcode;   
             $qrcode->url = $request->url;
             $qrcode->name = $request->name;
             $qrcode->save();
@@ -28,9 +28,13 @@ class QrcodeController extends Controller
     public function isUnique(Request $request) {
         try {
             $request->validate([
-                'name'=> 'required|unique:qrcode'
+                'name'=> 'required'
             ]);
-            return Response()->json(['url'=> $request->name ?? null,'unique'=> true])->header('Content-Type', 'application/json');
+            $qrcodeExists = Qrcode::where('url', $request->name)->first();
+            if($qrcodeExists):
+                return Response()->json(['unique'=> false], 422)->header('Content-Type', 'application/json');
+            endif;
+            return Response()->json(['unique'=> true])->header('Content-Type', 'application/json');
         } catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }

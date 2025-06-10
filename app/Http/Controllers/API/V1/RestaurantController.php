@@ -50,6 +50,11 @@ class RestaurantController extends Controller
         $restaurant->coverImage = $path;
         $restaurant->description = $request->description;
         $restaurant->mode = $request->mode;
+        if($request->initialize):
+            $restaurant->isActive = true;
+        else:
+            $restaurant->isActive = false;
+        endif;
         $restaurant->qrcode_id = $request->qrcode_id;
         $restaurant->user_id = $request->user()->id;
         $restaurant->save();
@@ -205,6 +210,29 @@ class RestaurantController extends Controller
             $restaurants = Restaurant::with(['language', 'address', 'openingTimes', 'socialNetworks', 'wifi', 'menu'])->where("user_id", $user_id)->get();
             return Response()->json(['restaurants'=> $restaurants])->header('Content-Type', 'application/json');
         }catch (Exception $e) {
+            return Utilities::errorsHandler($e);
+        }
+    }
+
+    public function setActive($id) {
+        try {
+            $restaurant = Restaurant::find($id);
+            if(!$restaurant):
+                return Response()->json(['message'=> 'item not found!'], 404)->header('Content-Type', 'application/json');
+            endif;
+            if($restaurant->isActive):
+                return Response()->json(['message'=> 'item is already active!'], 200)->header('Content-Type', 'application/json');
+            endif;
+            $restaurants = Restaurant::where('isActive', 1)->get();
+            foreach($restaurants as $item):
+                $item->isActive = false;
+                $item->save();
+            endforeach;
+            $restaurant->isActive = true;
+            $restaurant->save();
+            $restaurants = Restaurant::all();
+            return Response()->json(['restaurants'=> $restaurants])->header('Content-Type', 'application/json');
+        } catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }
     }

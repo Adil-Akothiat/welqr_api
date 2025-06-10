@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 
-Route::get('/test', [TestController::class, 'test']);
+Route::get('/test/{id}', [TestController::class, 'test']);
 
 require __DIR__.'/myRoutes/auth.php';
 require __DIR__.'/myRoutes/user.php';

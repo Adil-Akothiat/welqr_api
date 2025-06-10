@@ -10,6 +10,7 @@ Route::group(["prefix"=> "v1", "namespace"=> "App\Http\Controllers\API\V1"], fun
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::apiResource('/restaurants', RestaurantController::class);
+        Route::put('/setActiveRestaurant/{id}', [RestaurantController::class, 'setActive']);
         Route::get('/user/restaurants/{user_id}', [RestaurantController::class,'getRestaurantsByUser']);
         Route::post('restaurantCover', [RestaurantController::class, 'createCover']);
         Route::get('restaurantCover/{id}', [RestaurantController::class, 'getCovers']);
