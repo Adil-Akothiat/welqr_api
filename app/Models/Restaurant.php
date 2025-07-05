@@ -11,7 +11,8 @@ class Restaurant extends Model
 {
     protected $table = "restaurant";
     protected $casts = [
-        'isActive'=> 'boolean'
+        'isActive'=> 'boolean',
+        'visible'=>'boolean'
     ];
     public function user(): BelongsTo
     {

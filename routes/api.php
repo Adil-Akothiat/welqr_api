@@ -18,3 +18,7 @@ require __DIR__.'/myRoutes/translations.php';
 require __DIR__.'/myRoutes/visit.php';
 require __DIR__.'/myRoutes/plans.php';
 require __DIR__.'/myRoutes/template.php';
+
+Route::fallback(function() {
+    return Response('Get out of here!', 404)->header('Content-Type', 'text/plain');
+});

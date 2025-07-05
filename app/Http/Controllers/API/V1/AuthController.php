@@ -225,7 +225,10 @@ class AuthController extends Controller
     public function show (Request $request) {
         try {
             $user = $request->user();
-            return $user;
+            if(!$user):
+                return Response('User not found!', 404)->header('Content-Type', 'text/plain');
+            endif;
+            return Response()->json(['user'=> $user])->header('Content-Type', 'text/plain');
         } catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }

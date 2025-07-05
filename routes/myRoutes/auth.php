@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\V1\AuthController;
 
+
 Route::group(["prefix"=> "v1", "namespace"=> "App\Http\Controllers\API\V1"], function() {
     Route::post('user/register', [AuthController::class, 'register']);
     Route::post('user/login', [AuthController::class, 'login']);

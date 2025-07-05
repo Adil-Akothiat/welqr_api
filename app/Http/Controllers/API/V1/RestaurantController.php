@@ -50,6 +50,7 @@ class RestaurantController extends Controller
         $restaurant->coverImage = $path;
         $restaurant->description = $request->description;
         $restaurant->mode = $request->mode;
+        $restaurant->visible = true;
         if($request->initialize):
             $restaurant->isActive = true;
         else:
@@ -232,6 +233,20 @@ class RestaurantController extends Controller
             $restaurant->save();
             $restaurants = Restaurant::all();
             return Response()->json(['restaurants'=> $restaurants])->header('Content-Type', 'application/json');
+        } catch (Exception $e) {
+            return Utilities::errorsHandler($e);
+        }
+    }
+    public function setVisible($id) {
+        try {
+            $restaurant = Restaurant::find($id);
+            if(!$restaurant) {
+                return Response()->json(['message'=> 'Restaurant Not Found'], 404)->header('Content-Type', 'application/json');
+            }
+            $restaurant->visible = $restaurant->visible ? false : true;
+            $restaurant->save();
+            $restaurant->refresh();
+            return Response()->json(['restaurant'=> $restaurant], 200)->header('Content-Type', 'application/json');
         } catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }
