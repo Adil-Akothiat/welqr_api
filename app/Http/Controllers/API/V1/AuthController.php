@@ -224,11 +224,26 @@ class AuthController extends Controller
 
     public function show (Request $request) {
         try {
-            $user = $request->user();
+            $user = $request->user()->load('settings');
             if(!$user):
                 return Response('User not found!', 404)->header('Content-Type', 'text/plain');
             endif;
             return Response()->json(['user'=> $user])->header('Content-Type', 'text/plain');
+        } catch (Exception $e) {
+            return Utilities::errorsHandler($e);
+        }
+    }
+    public function isUserExistsByEmail(Request $request, $email) {
+        try {
+            $user = User::where('email', $email)->first();
+            if(!$user) {
+                return response()->json(['valid'=> false, 'message'=> 'The account not exists in our database'], 200)->header('Content-Type', 'application/json');
+            }
+            $authUser = $request->user();
+            if($user->email === $authUser->email) {
+                return response()->json(['valid'=> false, 'message'=> 'You can not invit yourself!'], 200)->header('Content-Type', 'application/json');
+            }
+            return response()->json(['valid'=> true, 'message'=> 'Valid Email', 'userId'=> $user->id], 200)->header('Content-Type', 'application/json');
         } catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }

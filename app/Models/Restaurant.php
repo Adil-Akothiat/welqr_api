@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasOne, HasMany};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasOne, HasMany, BelongsToMany};
 use App\Models\{User, Language, Menu, Review, Qrcode, Address, OpeningTimes, SocialNteworks, Wifi, RestaurantCovers };
 use Illuminate\Support\Facades\Log;
 
@@ -49,6 +49,10 @@ class Restaurant extends Model
     public function wifi(): HasMany
     {
         return $this->hasMany(Wifi::class);
+    }
+    public function members(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'restaurant_user', 'member_id', 'restaurant_id');
     }
     
     protected static function booted() {

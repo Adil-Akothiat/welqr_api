@@ -29,6 +29,9 @@ return new class extends Migration
             Schema::table('restaurant', function(Blueprint $table) {
                 $table->dropColumn('visible');
             });
+            Schema::table('restaurant', function(Blueprint $table) {
+                $table->dropColumn('isActive');
+            });
         endif;
     }
 };

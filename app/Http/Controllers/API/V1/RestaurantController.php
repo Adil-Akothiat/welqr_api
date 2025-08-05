@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Restaurant;
-use App\Models\{ RestaurantCovers, DefaultMenu, Menu, Dish };
+use App\Models\{ RestaurantCovers, DefaultMenu, Menu, Dish, RestaurantUser, UserSettings };
 use Exception;
 use App\Helpers\Utilities;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -60,6 +60,10 @@ class RestaurantController extends Controller
         $restaurant->user_id = $request->user()->id;
         $restaurant->save();
         if($request->initialize) {
+            UserSettings::create([
+                'user_id'=> $restaurant->user_id,
+                'active_restaurant'=> $restaurant->id
+            ]);
             $predefinedMenus = DefaultMenu::with('defaultDishes')->get();
             foreach($predefinedMenus as $predefinedMenu):
                 $lastPosition = Menu::max('order') ?? 0;
@@ -206,10 +210,21 @@ class RestaurantController extends Controller
             return Utilities::errorsHandler($e);
         }
     }
-    public function getRestaurantsByUser($user_id) {
+    public function getRestaurantsByUser(Request $request, $user_id) {
         try {
             $restaurants = Restaurant::with(['language', 'address', 'openingTimes', 'socialNetworks', 'wifi', 'menu'])->where("user_id", $user_id)->get();
-            return Response()->json(['restaurants'=> $restaurants])->header('Content-Type', 'application/json');
+            
+            $members = RestaurantUser::where('member_id', $user_id)->get();
+            $sharedRestaurants = [];
+            foreach($members as $member):
+                $restaurant = Restaurant::with(['language', 'address', 'openingTimes', 'socialNetworks', 'wifi', 'menu'])->where('id', $member->restaurant_id)->first();
+                $restaurant['role'] = $member->role;
+                $restaurant['permission'] = $member->permission;
+                $restaurant['owner'] = $member->owner_email;
+                $sharedRestaurants[] = $restaurant;
+            endforeach;
+
+            return Response()->json(['restaurants'=> $restaurants, 'sharedRestaurants'=> $sharedRestaurants], 200)->header('Content-Type', 'application/json');
         }catch (Exception $e) {
             return Utilities::errorsHandler($e);
         }

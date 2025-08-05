@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\{HasOne, HasMany};
+use Illuminate\Database\Eloquent\Relations\{HasOne, HasMany, BelongsToMany};
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\{Plan, Restaurant};
+use App\Models\{Plan, Restaurant, UserSettings};
 
 class User extends Authenticatable
 {
@@ -61,5 +60,13 @@ class User extends Authenticatable
     public function restaurant(): HasMany
     {
         return $this->hasMany(Restaurant::class);
+    }
+    public function memberRestaurants(): BelongsToMany
+    {
+        return $this->belongsToMany(Restaurant::class, 'restaurant_user');
+    }
+    public function settings(): HasOne
+    {
+        return $this->hasOne(UserSettings::class);
     }
 }
