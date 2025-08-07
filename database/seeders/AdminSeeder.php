@@ -22,7 +22,7 @@ class AdminSeeder extends Seeder
             'photo'=> null,
             'role'=> 'admin',
             'account_confirmation'=> true,
-            'password' => Hash::make('ADMINPASSWORD'),
+            'password' => Hash::make(env('ADMINPASSWORD')),
         ]);
     }
 }
